@@ -16,3 +16,7 @@ ts_df = hive_context.sql("SELECT * FROM ts_weekly") # , schema=schema_ts
 transformed_data = apply_pipeline(ts_df)
 
 transformed_data.show(20)
+
+result = transformed_data.map(lambda (x, y, z): "{},{},{}".format(x, str(y), str(z)))
+
+result.saveAsTextFile("hdfs://dumbo/user/srn334/final/indices/")
