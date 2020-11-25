@@ -12,8 +12,7 @@ from pyspark.ml.feature import StringIndexer, OneHotEncoder, VectorAssembler
 from pyspark.ml.feature import PCA
 
 
-sc = SparkContext.config("spark.driver.memory", "9g")\
-    .getOrCreate()
+sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
 
 # Register our time series data
