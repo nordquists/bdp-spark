@@ -1,3 +1,4 @@
+import gc
 from pyspark import SparkContext
 from pyspark.sql import HiveContext
 from pyspark.sql import *
@@ -16,9 +17,12 @@ ts = hive_context.sql("SELECT * FROM ts_weekly WHERE week <= {}".format(TRAIN_WE
 #
 # ts_df =
 
-ts = apply_pipeline(ts)
+temp = apply_pipeline(ts)
 
-ts.createOrReplaceTempView("temp_table")
+del ts
+gc.collect()
+
+temp.createOrReplaceTempView("temp_table")
 hive_context.sql("create table feature_table as select * from temp_table")
 
 # result = transformed_data.rdd\
