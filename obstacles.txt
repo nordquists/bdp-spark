@@ -1,1 +1,2 @@
 Ran into problems with memory on the spark cluster
+* Had to cut out the convenience of hive because it was bottle necking the system
