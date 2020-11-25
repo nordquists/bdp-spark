@@ -19,4 +19,4 @@ transformed_data.show(20)
 
 result = transformed_data.map(lambda (x, y, z): "{},{},{}".format(x, str(y), str(z)))
 
-result.saveAsTextFile("hdfs://dumbo/user/srn334/final/indices/")
+result.saveAsTextFile("test_output")
