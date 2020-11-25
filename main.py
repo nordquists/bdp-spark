@@ -19,12 +19,13 @@ ts = hive_context.sql("SELECT * FROM ts_weekly WHERE week <= {}".format(TRAIN_WE
 
 temp = apply_pipeline(ts)
 
+ts.unpersist()
 del ts
 gc.collect()
 
-temp.createOrReplaceTempView("temp_table")
-hive_context.sql("create table feature_table as select * from temp_table")
+# temp.createOrReplaceTempView("temp_table")
+# hive_context.sql("create table feature_table as select * from temp_table")
 
-# result = transformed_data.rdd\
-#     .map(tuple).map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))\
-#     .saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output/")
+result = temp.rdd\
+    .map(tuple).map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))\
+    .saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output1/")
