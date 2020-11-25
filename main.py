@@ -16,8 +16,10 @@ input = sc.textFile("hdfs://dumbo/user/srn334/final/indices")
 
 ts_df = input.toDF(schema_ts)
 
-transformed_data = apply_pipeline(ts_df)
+ts_df.show(20)
 
-result = transformed_data.rdd\
-    .map(tuple).map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))\
-    .saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output/")
+# transformed_data = apply_pipeline(ts_df)
+#
+# result = transformed_data.rdd\
+#     .map(tuple).map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))\
+#     .saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output/")
