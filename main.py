@@ -36,22 +36,14 @@ temp = apply_pipeline(ts)
 
 
 gbt = GBTRegressor(featuresCol='features', labelCol='score')
-
 train = get_train_split(temp)
 eval = get_eval_split(temp)
-
 fitted = gbt.fit(train)
-
 y = (fitted.transform(eval).withColumn("prediction").withColumn("score"))
-
 eval_ = RegressionEvaluator(labelCol="score", predictionCol="prediction", metricName="rmse")
-
 rmse = eval_.evaluate(y)
-
 print('rmse is %.2f' %rmse)
-
 mae = eval_.evaluate(y, {eval_.metricName: "mae"})
 print('mae is %.2f' %mae)
-
 r2 = eval_.evaluate(y, {eval_.metricName: "r2"})
 print('r2 is %.2f' %r2)
