@@ -14,8 +14,7 @@ ts.registerTempTable('ts_weekly')
 # ts_df = hive_context.sql("SELECT * FROM ts_weekly WHERE week <= {}".format(TRAIN_WEEKS))
 input = sc.textFile("hdfs://dumbo/user/srn334/final/indices")
 
-input = input.map(lambda line: line.split(","))
-
+input = input.map(lambda line: line.split(",")).map(lambda (repo, week, score): (repo, int(week), int(score)))
 
 ts_df = hive_context.createDataFrame(input, schema=schema_ts)
 
