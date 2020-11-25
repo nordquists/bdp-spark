@@ -19,4 +19,4 @@ transformed_data.show(20)
 
 result = transformed_data.map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{}".format(features, score))
 
-result.saveAsTextFile("test_output")
+result.saveAsTextFile("final/test_output")
