@@ -19,6 +19,6 @@ transformed_data.show(20)
 
 result = transformed_data.map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{}".format(features, score))
 
-result.show()
+print(result)
 
 result.saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output/")
