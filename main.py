@@ -46,5 +46,5 @@ transformed_data = pipeline.fit(df).transform(df)
 # transformed_data = apply_pipeline(ts_df)
 
 result = transformed_data.rdd\
-    .map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))\
+    .map(tuple).map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))\
     .saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output/")
