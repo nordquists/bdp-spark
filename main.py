@@ -17,10 +17,10 @@ transformed_data = apply_pipeline(ts_df)
 
 transformed_data.show(20)
 
-rdd = transformed_data.rdd.map(tuple)
-
-result = rdd.map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))
+# rdd = transformed_data.rdd.map(tuple)
 #
-# print(result)
-
-result.saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output/")
+# result = rdd.map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))
+#
+# # print(result)
+#
+# result.saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output/")
