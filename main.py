@@ -2,7 +2,7 @@ import gc
 from pyspark import SparkContext
 from pyspark.sql import HiveContext
 from pyspark.sql import *
-from pipeline.config import TRAIN_WEEKS
+from pipeline.config import TRAIN_WEEKS, schema_ts
 from pipeline.features import apply_pipeline
 from pyspark.ml.evaluation import RegressionEvaluator
 from pyspark.ml.regression import *
@@ -14,14 +14,19 @@ sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
 
 # Register our time series data
-ts = hive_context.table("srn334.ts_weekly")
-ts.registerTempTable('ts_weekly')
+# ts = hive_context.table("srn334.ts_weekly")
+# ts.registerTempTable('ts_weekly')
+#
+# ts = hive_context.sql("SELECT * FROM ts_weekly WHERE week > 40")
 
-ts = hive_context.sql("SELECT * FROM ts_weekly WHERE week > 40")
+input = sc.textFile("hdfs://dumbo/user/srn334/final/indices")
+
+newdata = input.map(lambda line: line.split(","))
+
+ts = hive_context.createDataFrame(newdata, schema=schema_ts)
 
 # temp = apply_pipeline(ts)
 category = "repo"
-
 
 ts = ts.fillna({ 'score': 0, 'week': 0, 'repo': '' })
 
@@ -37,8 +42,8 @@ features = VectorAssembler(inputCols=[one_hot_encoder.getOutputCol()] + ['week']
 
 pipeline = Pipeline(stages=[indexer, one_hot_encoder, features])
 
-
-temp = pipeline.fit(ts).transform(ts)
+model = pipeline.fit(ts)
+temp = model.transform(ts)
 
 
 # ts.unpersist()
