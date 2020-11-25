@@ -7,6 +7,8 @@ from pipeline.features import apply_pipeline
 from pyspark.ml.evaluation import RegressionEvaluator
 from pyspark.ml.regression import *
 from pipeline.split import get_train_split, get_eval_split
+from pyspark.ml import Pipeline
+from pyspark.ml.feature import StringIndexer, OneHotEncoder, VectorAssembler
 
 sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
@@ -17,7 +19,27 @@ ts.registerTempTable('ts_weekly')
 
 ts = hive_context.sql("SELECT * FROM ts_weekly WHERE week > 40")
 
-temp = apply_pipeline(ts)
+# temp = apply_pipeline(ts)
+category = "repo"
+
+
+ts = ts.fillna({ 'score': 0, 'week': 0, 'repo': '' })
+
+indexer = StringIndexer(inputCol=category,
+                         outputCol="{}_indexed".format(category), handleInvalid='skip')
+
+one_hot_encoder = OneHotEncoder(dropLast=True, inputCol=indexer.getOutputCol(),
+                                 outputCol="{}_encoded".format(indexer.getOutputCol()))
+
+# This steps puts our features in a form that will be understood by the regression models
+features = VectorAssembler(inputCols=[one_hot_encoder.getOutputCol()] + ['week'],
+                            outputCol="features")
+
+pipeline = Pipeline(stages=[indexer, one_hot_encoder, features])
+
+
+temp = pipeline.fit(ts).transform(ts)
+
 
 # ts.unpersist()
 # del ts
