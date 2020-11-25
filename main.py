@@ -1,4 +1,3 @@
-# coding: utf-8
 import gc
 from pyspark import SparkContext
 from pyspark.sql import HiveContext
