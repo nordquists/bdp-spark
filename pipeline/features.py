@@ -36,7 +36,6 @@ def apply_pipeline(df):
     # df.fillna(col_avgs).show()
     df = df.fillna({ 'score': 0, 'week': 0, 'repo': '' })
 
-
     indexer = StringIndexer(inputCol=category,
                              outputCol="{}_indexed".format(category), handleInvalid='skip')
 
@@ -44,7 +43,7 @@ def apply_pipeline(df):
                                      outputCol="{}_encoded".format(indexer.getOutputCol()))
 
     # This steps puts our features in a form that will be understood by the regression models
-    features = VectorAssembler(inputCols=[one_hot_encoder.getOutputCol()] + ['week', 'score'],
+    features = VectorAssembler(inputCols=[one_hot_encoder.getOutputCol()] + ['week'],
                                 outputCol="features")
 
     pipeline = Pipeline(stages=[indexer, one_hot_encoder, features])

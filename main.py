@@ -1,7 +1,7 @@
 from pyspark import SparkContext
 from pyspark.sql import HiveContext
 from pyspark.sql import *
-from pipeline.config import schema_ts
+from pipeline.config import TRAIN_WEEKS
 from pipeline.features import apply_pipeline
 
 sc = SparkContext.getOrCreate()
@@ -11,7 +11,7 @@ hive_context = HiveContext(sc)
 ts = hive_context.table("srn334.ts_weekly")
 ts.registerTempTable('ts_weekly')
 
-ts_df = hive_context.sql("SELECT * FROM ts_weekly LIMIT 1000") # , schema=schema_ts
+ts_df = hive_context.sql("SELECT * FROM ts_weekly WHERE week < 40") # , schema=schema_ts
 
 ts_df.show(20)
 
