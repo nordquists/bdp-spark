@@ -17,7 +17,9 @@ transformed_data = apply_pipeline(ts_df)
 
 transformed_data.show(20)
 
-result = transformed_data.map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))
+rdd = transformed_data.rdd.map(tuple)
+
+result = rdd.map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))
 #
 # print(result)
 
