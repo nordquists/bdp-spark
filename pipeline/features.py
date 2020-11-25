@@ -18,7 +18,7 @@
     implemented in the kaggle competition: https://www.kaggle.com/paulorzp/log-ma-and-days-of-week-means-lb-0-529.
 """
 from pyspark.ml import Pipeline
-from pyspark.ml.feature import Imputer, StringIndexer, OneHotEncoder, VectorAssembler
+from pyspark.ml.feature import StringIndexer, OneHotEncoder, VectorAssembler
 
 
 category = "REPO"
@@ -26,8 +26,8 @@ category = "REPO"
 
 def apply_pipeline(df):
     # We are defining rules for our pipeline to standardize our data for training and for eventually running the model.
-    imputer = [Imputer(inputCols=df.columns,
-                       outputCols=["{}_imputed".format(col) for col in df.columns])]
+    # imputer = [Imputer(inputCols=df.columns,
+    #                    outputCols=["{}_imputed".format(col) for col in df.columns])]
 
     indexer = [StringIndexer(inputCol=category,
                              outputCol="{0}_indexed".format(category), handleInvalid='skip')]
@@ -40,7 +40,7 @@ def apply_pipeline(df):
                                 ['{}_imputed'.format(i) for i in ['WEEK', 'SCORE']],
                                 outputCol="FEATURES")]
 
-    pipeline = Pipeline(stages=imputer + indexer + one_hot_encoder + features)
+    pipeline = Pipeline(stages=indexer + one_hot_encoder + features)
 
     model = pipeline.fit(df)
     return model.transform(df)
