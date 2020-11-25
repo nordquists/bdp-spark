@@ -7,5 +7,5 @@ TARGET = 'score'
 schema_ts = StructType([
     StructField("repo", StringType()),
     StructField("week", IntegerType()),
-    StructField("score", LongType())
+    StructField("score", DoubleType())
 ])
