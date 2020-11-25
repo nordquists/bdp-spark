@@ -20,9 +20,9 @@ def mapFunc(lines):
     count = int(lines[4].replace("'", "").replace('u',"").replace(')', "").strip())
 
     if type == 'ForkEvent':
-        count = count * count * count
+        count = 3 * count
     elif type == 'WatchEvent':
-        count = count * count
+        count = 2 * count
     elif type == 'PushEvent':
         count = count
 
@@ -33,4 +33,4 @@ result = newdata.map(mapFunc).reduceByKey(lambda a, b: a + b)
 result_split = result.map(lambda (x, y): (x.split(',')[0], x.split(',')[1], y))
 result2 = result_split.map(lambda (x, y, z): "{},{},{}".format(x, str(y), str(z)))
 
-result2.saveAsTextFile("test_output")
+result2.saveAsTextFile("hdfs://dumbo/user/srn334/final/indices/")

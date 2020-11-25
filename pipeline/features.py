@@ -29,6 +29,12 @@ def apply_pipeline(df):
     # imputer = [Imputer(inputCols=df.columns,
     #                    outputCols=["{}_imputed".format(col) for col in df.columns])]
 
+    # We need to handle null values if they come up https://stackoverflow.com/questions/40057563/replace-missing-values-with-mean-spark-dataframe
+    mean_dict = {col: 'mean' for col in df.columns}
+    col_avgs = df.agg(mean_dict).collect()[0].asDict()
+    col_avgs = {k[4:-1]: v for k, v in col_avgs.iteritems()}
+    df.fillna(col_avgs).show()
+
     indexer = StringIndexer(inputCol=category,
                              outputCol="{}_indexed".format(category), handleInvalid='skip')
 
