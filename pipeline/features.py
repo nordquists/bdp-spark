@@ -33,7 +33,7 @@ def apply_pipeline(df):
                              outputCol="{}_indexed".format(category), handleInvalid='skip')
 
     one_hot_encoder = OneHotEncoder(dropLast=True, inputCol=indexer.getOutputCol(),
-                                     outputCol="{}_encoded".format(indexer.getOutputCol))
+                                     outputCol="{}_encoded".format(indexer.getOutputCol()))
 
     # This steps puts our features in a form that will be understood by the regression models
     features = VectorAssembler(inputCols=[one_hot_encoder.getOutputCol()] + ['week', 'score'],
