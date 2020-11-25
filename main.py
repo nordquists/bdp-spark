@@ -9,6 +9,8 @@ from pyspark.ml.regression import *
 from pipeline.split import get_train_split, get_eval_split
 from pyspark.ml import Pipeline
 from pyspark.ml.feature import StringIndexer, OneHotEncoder, VectorAssembler
+from pyspark.ml.feature import PCA
+
 
 sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
@@ -40,7 +42,9 @@ one_hot_encoder = OneHotEncoder(dropLast=True, inputCol=indexer.getOutputCol(),
 features = VectorAssembler(inputCols=[one_hot_encoder.getOutputCol()] + ['week'],
                             outputCol="features")
 
-pipeline = Pipeline(stages=[indexer, one_hot_encoder, features])
+pca = PCA(k=5, inputCol="features", outputCol="pcaFeatures")
+
+pipeline = Pipeline(stages=[indexer, one_hot_encoder, features, pca])
 
 model = pipeline.fit(ts)
 temp = model.transform(ts)
