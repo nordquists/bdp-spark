@@ -17,8 +17,8 @@ transformed_data = apply_pipeline(ts_df)
 
 transformed_data.show(20)
 
-result = transformed_data.map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{}".format(features, score))
+# result = transformed_data.map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,features,score))
+#
+# print(result)
 
-print(result)
-
-result.saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output/")
+transformed_data.saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output/")
