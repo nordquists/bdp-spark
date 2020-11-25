@@ -11,21 +11,10 @@ hive_context = HiveContext(sc)
 ts = hive_context.table("srn334.ts_weekly")
 ts.registerTempTable('ts_weekly')
 
-ts_df = hive_context.sql("SELECT * FROM ts_weekly WHERE week < 40") # , schema=schema_ts
-
-ts_df.show(20)
+ts_df = hive_context.sql("SELECT * FROM ts_weekly WHERE week >= {}".format(TRAIN_WEEKS))
 
 transformed_data = apply_pipeline(ts_df)
 
-transformed_data.show(20)
-
-# transformed_data.rdd.map(lambda x: ",".join(map(str, x))).saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output/")
-
-
-rdd = transformed_data.rdd.map(tuple)
-#
-result = rdd.map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))
-#
-print(result)
-#
-result.saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output/")
+result = transformed_data.rdd\
+    .map(tuple).map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))\
+    .saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output/")
