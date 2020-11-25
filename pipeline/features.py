@@ -1,3 +1,4 @@
+# coding: utf-8
 """
     We can be pretty confident we have a correlation between our independent variable (activity index)
     and our dependent variable. How time plays a role in the activity index is not a definite function
