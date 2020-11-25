@@ -21,7 +21,7 @@ from pyspark.ml import Pipeline
 from pyspark.ml.feature import StringIndexer, OneHotEncoder, VectorAssembler
 
 
-category = "REPO"
+category = "ts_weekly.repo"
 
 
 def apply_pipeline(df):
@@ -37,8 +37,8 @@ def apply_pipeline(df):
 
     # This steps puts our features in a form that will be understood by the regression models
     features = [VectorAssembler(inputCols=[encoder.getOutputCol() for encoder in one_hot_encoder] + \
-                                ['{}_imputed'.format(i) for i in ['WEEK', 'SCORE']],
-                                outputCol="FEATURES")]
+                                ['{}_imputed'.format(i) for i in ['ts_weekly.week', 'ts_weekly.score']],
+                                outputCol="features")]
 
     pipeline = Pipeline(stages=indexer + one_hot_encoder + features)
 
