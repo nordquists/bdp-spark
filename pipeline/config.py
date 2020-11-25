@@ -1,6 +1,6 @@
 from pyspark.sql.types import *
 
-TRAIN_WEEKS = 1
+TRAIN_WEEKS = 40
 TARGET = 'SCORE'
 
 # Defining schema for our time series data
