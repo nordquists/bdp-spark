@@ -11,7 +11,7 @@ hive_context = HiveContext(sc)
 ts = hive_context.table("srn334.ts_weekly")
 ts.registerTempTable('ts_weekly')
 
-ts_df = hive_context.sql("SELECT * FROM ts_weekly WHERE week <= {} LIMIT 1000".format(TRAIN_WEEKS))
+ts_df = hive_context.sql("SELECT * FROM ts_weekly WHERE week <= {}".format(TRAIN_WEEKS))
 # input = sc.textFile("hdfs://dumbo/user/srn334/final/indices")
 #
 # ts_df =
