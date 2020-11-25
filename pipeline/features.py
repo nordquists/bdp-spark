@@ -34,7 +34,8 @@ def apply_pipeline(df):
     # col_avgs = df.agg(mean_dict).collect()[0].asDict()
     # col_avgs = {k[4:-1]: v for k, v in col_avgs.iteritems()}
     # df.fillna(col_avgs).show()
-    df.fillna(0, subset=['score'])
+    df.fillna({ 'score': 0, 'week': 0 })
+
 
     indexer = StringIndexer(inputCol=category,
                              outputCol="{}_indexed".format(category), handleInvalid='skip')
