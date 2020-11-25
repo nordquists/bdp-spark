@@ -11,14 +11,14 @@ hive_context = HiveContext(sc)
 ts = hive_context.table("srn334.ts_weekly")
 ts.registerTempTable('ts_weekly')
 
-ts_df = hive_context.sql("SELECT * FROM ts_weekly WHERE week <= {}".format(TRAIN_WEEKS))
+ts = hive_context.sql("SELECT * FROM ts_weekly WHERE week <= {}".format(TRAIN_WEEKS))
 # input = sc.textFile("hdfs://dumbo/user/srn334/final/indices")
 #
 # ts_df =
 
-transformed_data = apply_pipeline(ts_df)
+ts = apply_pipeline(ts)
 
-transformed_data.createOrReplaceTempView("temp_table")
+ts.createOrReplaceTempView("temp_table")
 hive_context.sql("create table feature_table as select * from temp_table")
 
 # result = transformed_data.rdd\
