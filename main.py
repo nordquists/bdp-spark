@@ -11,7 +11,7 @@ hive_context = HiveContext(sc)
 ts = hive_context.table("srn334.ts_weekly")
 ts.registerTempTable('ts_weekly')
 
-ts_df = hive_context.sql("SELECT * FROM ts_weekly WHERE week >= {}".format(TRAIN_WEEKS))
+ts_df = hive_context.sql("SELECT * FROM ts_weekly WHERE week <= {}".format(TRAIN_WEEKS))
 
 transformed_data = apply_pipeline(ts_df)
 
