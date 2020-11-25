@@ -15,7 +15,7 @@ hive_context = HiveContext(sc)
 ts = hive_context.table("srn334.ts_weekly")
 ts.registerTempTable('ts_weekly')
 
-ts = hive_context.sql("SELECT * FROM ts_weekly")
+ts = hive_context.sql("SELECT * FROM ts_weekly WHERE week > 40")
 
 temp = apply_pipeline(ts)
 

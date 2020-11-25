@@ -48,4 +48,4 @@ def apply_pipeline(df):
 
     pipeline = Pipeline(stages=[indexer, one_hot_encoder, features])
 
-    return  pipeline.fit(df).transform(df)
+    return pipeline.fit(df).transform(df)
