@@ -42,9 +42,9 @@ one_hot_encoder = OneHotEncoder(dropLast=True, inputCol=indexer.getOutputCol(),
 features = VectorAssembler(inputCols=[one_hot_encoder.getOutputCol()] + ['week'],
                             outputCol="features")
 
-pca = PCA(k=5, inputCol="features", outputCol="pcaFeatures")
+# pca = PCA(k=5, inputCol="features", outputCol="pcaFeatures")
 
-pipeline = Pipeline(stages=[indexer, one_hot_encoder, features, pca])
+pipeline = Pipeline(stages=[indexer, one_hot_encoder, features])
 
 model = pipeline.fit(ts)
 temp = model.transform(ts)

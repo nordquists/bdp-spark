@@ -10,3 +10,6 @@ Ran into problems with memory on the spark cluster
     We choose the latter approach because the former does not jibe with our strategy for training the
     model – the model is trained with the particular repository in mind.
 """
+
+
+I didn't realize you could give more memory to the executors so I spent a lot of time watching my jobs fail over and over again.
