@@ -3,13 +3,15 @@ from pyspark.sql import HiveContext
 from pyspark.sql import *
 from pipeline.config import TRAIN_WEEKS, schema_ts
 from pipeline.features import apply_pipeline
+from pyspark.ml import Pipeline
+from pyspark.ml.feature import StringIndexer, OneHotEncoder, VectorAssembler
 
 sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
 
-# Register our time series data
-ts = hive_context.table("srn334.ts_weekly")
-ts.registerTempTable('ts_weekly')
+# # Register our time series data
+# ts = hive_context.table("srn334.ts_weekly")
+# ts.registerTempTable('ts_weekly')
 
 # ts_df = hive_context.sql("SELECT * FROM ts_weekly WHERE week <= {}".format(TRAIN_WEEKS))
 input = sc.textFile("hdfs://dumbo/user/srn334/final/indices")
@@ -18,9 +20,27 @@ input = input.map(lambda line: line.split(",")).map(lambda (repo, week, score): 
 
 ts_df = hive_context.createDataFrame(input, schema=schema_ts)
 
+category = "repo"
+
+df = ts_df.fillna({ 'score': 0, 'week': 0, 'repo': '' })
+
+indexer = StringIndexer(inputCol=category,
+                         outputCol="{}_indexed".format(category), handleInvalid='skip')
+
+one_hot_encoder = OneHotEncoder(dropLast=True, inputCol=indexer.getOutputCol(),
+                                 outputCol="{}_encoded".format(indexer.getOutputCol()))
+
+# This steps puts our features in a form that will be understood by the regression models
+features = VectorAssembler(inputCols=[one_hot_encoder.getOutputCol()] + ['week'],
+                            outputCol="features")
+
+pipeline = Pipeline(stages=[indexer, one_hot_encoder, features])
+
+transformed_data = pipeline.fit(df).transform(df)
+
 # ts_df.show(20)
 
-transformed_data = apply_pipeline(ts_df)
+# transformed_data = apply_pipeline(ts_df)
 
 result = transformed_data.rdd\
     .map(tuple).map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))\
