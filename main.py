@@ -16,16 +16,16 @@ sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
 
 # Register our time series data
-# ts = hive_context.table("srn334.ts_weekly")
-# ts.registerTempTable('ts_weekly')
+ts = hive_context.table("srn334.ts_weekly")
+ts.registerTempTable('ts_weekly')
+
+ts = hive_context.sql("SELECT * FROM ts_weekly WHERE week <= 3")
+
+# input = sc.textFile("hdfs://dumbo/user/srn334/final/indices")
 #
-# ts = hive_context.sql("SELECT * FROM ts_weekly WHERE week > 40")
-
-input = sc.textFile("hdfs://dumbo/user/srn334/final/indices")
-
-newdata = input.map(lambda line: line.split(","))
-
-ts = hive_context.createDataFrame(newdata, schema=schema_ts)
+# newdata = input.map(lambda line: line.split(","))
+#
+# ts = hive_context.createDataFrame(newdata, schema=schema_ts)
 
 # temp = apply_pipeline(ts)
 category = "repo"
