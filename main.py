@@ -13,6 +13,8 @@ ts.registerTempTable('ts_weekly')
 
 ts_df = hive_context.sql("SELECT * FROM ts_weekly LIMIT 1000") # , schema=schema_ts
 
+ts_df.show(20)
+
 transformed_data = apply_pipeline(ts_df)
 
 transformed_data.show(20)
