@@ -21,7 +21,7 @@ input = input.map(lambda line: line.split(",")).map(lambda (repo, week, score): 
 ts_df = hive_context.createDataFrame(input, schema=schema_ts)
 
 ts_df.registerTempTable('ts')
-ts_df = hive_context.sql("SELECT * FROM ts WHERE week <= {}".format(TRAIN_WEEKS))
+ts_df = hive_context.sql("SELECT * FROM ts WHERE week <= {} LIMIT 1000".format(TRAIN_WEEKS))
 
 category = "repo"
 
@@ -46,5 +46,5 @@ transformed_data = pipeline.fit(df).transform(df)
 # transformed_data = apply_pipeline(ts_df)
 
 result = transformed_data.rdd\
-    .map(tuple).map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))\
+    .map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))\
     .saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output/")
