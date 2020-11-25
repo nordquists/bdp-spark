@@ -1,7 +1,7 @@
 from pyspark.sql.types import *
 
 TRAIN_WEEKS = 2
-TARGET = 'SCORE'
+TARGET = 'score'
 
 # Defining schema for our time series data
 schema_ts = StructType([
