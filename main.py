@@ -30,7 +30,7 @@ ts = hive_context.createDataFrame(newdata, schema=schema_ts)
 # temp = apply_pipeline(ts)
 category = "repo"
 
-ts = ts.fillna({ 'score': 0, 'week': 0, 'repo': '' })
+ts = ts.fillna({'score': 0, 'week': 0, 'repo': ''})
 
 indexer = StringIndexer(inputCol=category,
                          outputCol="{}_indexed".format(category), handleInvalid='skip')
@@ -46,8 +46,7 @@ features = VectorAssembler(inputCols=[one_hot_encoder.getOutputCol()] + ['week']
 
 pipeline = Pipeline(stages=[indexer, one_hot_encoder, features])
 
-model = pipeline.fit(ts)
-temp = model.transform(ts)
+temp = pipeline.fit(ts).transform(ts)
 
 
 # ts.unpersist()
