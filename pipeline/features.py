@@ -39,7 +39,7 @@ def apply_pipeline(df):
     features = VectorAssembler(inputCols=[one_hot_encoder.getOutputCol()] + ['week', 'score'],
                                 outputCol="features")
 
-    pipeline = Pipeline(stages=[indexer + one_hot_encoder + features])
+    pipeline = Pipeline(stages=[indexer, one_hot_encoder, features])
 
     model = pipeline.fit(df)
     return model.transform(df)
