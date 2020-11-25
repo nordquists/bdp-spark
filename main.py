@@ -20,6 +20,9 @@ input = input.map(lambda line: line.split(",")).map(lambda (repo, week, score): 
 
 ts_df = hive_context.createDataFrame(input, schema=schema_ts)
 
+ts_df.registerTempTable('ts')
+ts_df = hive_context.sql("SELECT * FROM ts_weekly WHERE week <= {}".format(TRAIN_WEEKS))
+
 category = "repo"
 
 df = ts_df.fillna({ 'score': 0, 'week': 0, 'repo': '' })

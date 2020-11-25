@@ -34,14 +34,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="38" />
-          <entry key="py" value="6209" />
+          <entry key="py" value="6234" />
           <entry key="txt" value="148" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="186" />
-          <entry key="Python" value="6209" />
+          <entry key="Python" value="6234" />
         </counts>
       </usages-collector>
     </session>
@@ -64,11 +64,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="375">
+              <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
-                <marker date="1606336771688" expanded="true" signature="437:480" ph="..." />
+                <marker date="1606338048749" expanded="true" signature="437:480" ph="..." />
               </folding>
             </state>
           </provider>
@@ -386,11 +386,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="375">
+          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-            <marker date="1606336771688" expanded="true" signature="437:480" ph="..." />
+            <marker date="1606338048749" expanded="true" signature="437:480" ph="..." />
           </folding>
         </state>
       </provider>
