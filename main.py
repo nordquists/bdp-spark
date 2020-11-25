@@ -17,6 +17,6 @@ transformed_data = apply_pipeline(ts_df)
 
 transformed_data.show(20)
 
-result = transformed_data.map(lambda (x, y, z): "{},{},{}".format(x, str(y), str(z)))
+result = transformed_data.map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{}".format(features, score))
 
 result.saveAsTextFile("test_output")
