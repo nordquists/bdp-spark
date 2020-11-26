@@ -21,7 +21,7 @@ hive_context = HiveContext(sc)
 ts = hive_context.table("srn334.ts_filtered")
 ts.registerTempTable('ts_filtered')
 
-ts = hive_context.sql("SELECT * FROM ts_filtered where repo = 'thealgorithms/python'")
+ts = hive_context.sql("SELECT * FROM ts_filtered where lower(repo) = 'thealgorithms/python'")
 
 # input = sc.textFile("hdfs://dumbo/user/srn334/final/indices")
 #
