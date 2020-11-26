@@ -10,7 +10,7 @@ matplotlib.use('tkagg')
 
 sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
-sc.setLogLevel("INFO")
+sc.setLogLevel("WARN")
 
 # Register our time series data
 ts = hive_context.table("srn334.ts_filtered")
@@ -23,15 +23,15 @@ ts = ts.fillna({'score': 0, 'week': 0, 'repo': ''})
 train = get_train_split(ts)
 eval = get_eval_split(ts)
 
-x = np.array(train.select('week').collect())
-y = np.array(train.select('score').collect())
+x = np.array(train.select('week').collect()).flatten()
+y = np.array(train.select('score').collect()).flatten()
 
 lr = LinearRegression()
 
 lr.fit(x, y)
 
-x_hat = np.array(eval.select('week').collect())
-y_hat = np.array(eval.select('score').collect())
+x_hat = np.array(eval.select('week').collect()).flatten()
+y_hat = np.array(eval.select('score').collect()).flatten()
 
 predictions = lr.predict(x_hat)
 
