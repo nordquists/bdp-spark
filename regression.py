@@ -11,21 +11,13 @@ sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
 sc.setLogLevel("OFF")
 
-
-def do_regression(repos):
-    print("STARTING REGRESSION MAP: --------------------------------")
-    result = repos.map(map_linear_regression)
-    print("FINISHED REGRESSION MAP: --------------------------------")
-    return result
-
-
 def map_linear_regression(repo_name):
     global hive_context
     global INPUT_TABLE
 
-    # We have to
-    ts = hive_context.table("srn334.{}".format(INPUT_TABLE))
-    ts.registerTempTable('{}'.format(INPUT_TABLE))
+    # # We have to
+    # ts = hive_context.table("srn334.{}".format(INPUT_TABLE))
+    # ts.registerTempTable('{}'.format(INPUT_TABLE))
 
     ts = hive_context.sql("SELECT * FROM {} where repo = '{}'".format(INPUT_TABLE, repo_name))
 
@@ -41,7 +33,12 @@ def map_linear_regression(repo_name):
 
     return "{},{},{},{}".format(repo_name, slope, intercept, r2)
 
-sc.setLogLevel("WARN")
+def do_regression(repos):
+    print("STARTING REGRESSION MAP: --------------------------------")
+    result = repos.map(map_linear_regression)
+    print("FINISHED REGRESSION MAP: --------------------------------")
+    return result
+
 
 ts = hive_context.table("srn334.{}".format(INPUT_TABLE))
 ts.registerTempTable('{}'.format(INPUT_TABLE))
@@ -50,7 +47,7 @@ ts = hive_context.sql("SELECT * FROM {} WHERE month < {}".format(INPUT_TABLE, st
 
 # First we find all of the repositories that we will run a regression on.
 print("LOADING REPOSITORIES: -------------------------------")
-repos = ts.rdd.map(lambda (x, y, z): x)
+repos = ts.rdd.map(tuple).map(lambda (x, y, z): x)
 print("LOADED {} REPOSITORIES: -----------------------------".format(repos.count()))
 
 result = do_regression(repos)
