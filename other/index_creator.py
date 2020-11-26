@@ -24,7 +24,7 @@ def mapFunc(lines):
     elif type == 'WatchEvent':
         count = 1 * count
     elif type == 'PushEvent':
-        count = 0
+        count = 1 * 0
 
     return "{},{},".format(repo, week), count
 
