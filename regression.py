@@ -19,4 +19,8 @@ repos = ts.rdd.map(lambda (x, y, z): x)
 
 
 
+global repositories
+
+
+
 
