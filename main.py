@@ -49,6 +49,7 @@ pipeline = Pipeline(stages=[indexer, one_hot_encoder, features])
 
 temp = pipeline.fit(ts).transform(ts)
 
+temp.show(30)
 
 # ts.unpersist()
 # del ts
@@ -68,7 +69,7 @@ hive_context.sql("create table feature_table as select * from temp_table")
 #
 # temp = hive_context.createDataFrame(newdata, schema=schema_ts)
 
-gbt = GBTRegressor(featuresCol='features', labelCol='score')
+gbt = DecisionTreeRegressor(featuresCol='features', labelCol='score')
 train = get_train_split(temp)
 eval = get_eval_split(temp)
 fitted = gbt.fit(train)
