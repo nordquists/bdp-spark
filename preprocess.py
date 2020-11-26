@@ -1,5 +1,6 @@
 from pyspark import SparkContext
 from pyspark.sql import HiveContext
+import datetime
 # from preprocessing.preprocessor import adjust_granularity, create_index, apply_filter
 
 def index_map(line):
@@ -48,6 +49,7 @@ def apply_filter(rdd, granularity='month', min_score=1000):
     result_df = original_df.join(sum_df, ["repo"], "left_semi")
 
     return result_df.rdd.map(tuple).map(lambda (repo, week, score): "{},{},{}".format(repo,week,str(score)))
+
 
 INPUT_DIR = "hdfs://dumbo/user/srn334/final/output/part-r-00000"
 OUTPUT_DIR = "hdfs://dumbo/user/srn334/final/preprocessed/"
