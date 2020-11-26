@@ -19,7 +19,7 @@ hive_context = HiveContext(sc)
 ts = hive_context.table("srn334.ts")
 ts.registerTempTable('ts')
 
-ts = hive_context.sql("SELECT * FROM ts WHERE week <= 10")
+ts = hive_context.sql("SELECT * FROM ts WHERE repo = 'cutsea110/aop' OR repo = 'mezgoodle/auto-formatter' OR repo = 'BearWare/TeamTalk5'")
 
 # input = sc.textFile("hdfs://dumbo/user/srn334/final/indices")
 #
