@@ -17,6 +17,8 @@ import pyspark.sql.functions as f
 sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
 
+sc.setLogLevel("INFO")
+
 # Register our time series data
 ts = hive_context.table("srn334.ts_filtered")
 ts.registerTempTable('ts_filtered')

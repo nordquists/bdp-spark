@@ -22,3 +22,5 @@ baseline: average of all the previous versus current
 
 To avoid the mini seasonality we see in a week: the increase in activity on weekdays, we reduce our data to look at
 week long intervals
+
+Lots of seasonality problems, had to keep increasing granularity 
