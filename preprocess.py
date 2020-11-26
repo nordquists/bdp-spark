@@ -1,6 +1,6 @@
 from pyspark import SparkContext
 from pyspark.sql import HiveContext
-from preprocessing.preprocessor import adjust_granularity,create_index, apply_filter
+from preprocessing.preprocessor import adjust_granularity, create_index, apply_filter
 
 INPUT_DIR = "hdfs://dumbo/user/srn334/final/output/part-r-00000"
 OUTPUT_DIR = "hdfs://dumbo/user/srn334/final/preprocessed/"

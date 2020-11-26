@@ -9,8 +9,9 @@ hive_context = HiveContext(sc)
 
 sc.setLogLevel("WARN")
 
-
-ts = hive_context.table("srn334.ts_day")
-ts.registerTempTable('ts_day')
+ts = hive_context.table("srn334.{}".format(INPUT_TABLE))
+ts.registerTempTable('{}'.format(INPUT_TABLE))
 
 ts = hive_context.sql("SELECT * FROM {}".format(INPUT_TABLE))
+
+

@@ -1,6 +1,7 @@
 import datetime
 import pyspark.sql.functions as f
 
+
 def index_map(line):
     repo = line[0]
     type = line[1]
