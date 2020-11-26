@@ -28,6 +28,8 @@ schema_ts = StructType([
 
 original_df = hive_context.createDataFrame(newdata, schema=schema_ts)
 
+original_df.show(5)
+
 schema_ts = StructType([
     StructField("repo", StringType()),
     StructField("score", DoubleType())
@@ -35,9 +37,16 @@ schema_ts = StructType([
 
 sum_df = hive_context.createDataFrame(result, schema=schema_ts)
 
+sum_df.show(6)
+
+
 sum_df = sum_df.filter(f.col('score') > 10000)
 
+sum_df.show(7)
+
 result_df = original_df.join(sum_df, ["repo"], "left_semi")
+
+result_df.show(8)
 
 result_df.rdd\
     .map(tuple).map(lambda (repo, week, score): "{},{},{}".format(repo,week,str(score)))\
