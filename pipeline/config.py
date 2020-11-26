@@ -1,4 +1,5 @@
 from pyspark.sql.types import *
+from pyspark.ml.linalg import VectorUDT
 
 TRAIN_WEEKS = 40
 TARGET = 'score'
@@ -7,10 +8,6 @@ TARGET = 'score'
 schema_ts = StructType([
     StructField("repo", StringType()),
     StructField("week", IntegerType()),
-    StructField("features", ArrayType(StructType([
-        StructField("week", DoubleType()),
-        StructField("week", DoubleType()),
-        StructField("week", DoubleType())
-    ]))),
+    StructField("features", VectorUDT()),
     StructField("score", DoubleType())
 ])
