@@ -9,7 +9,7 @@ OUTPUT_DIR = "hdfs://dumbo/user/srn334/final/regression{}/".format(str(TRAINING_
 
 sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
-sc.setLogLevel("NONE")
+sc.setLogLevel("OFF")
 
 
 def do_regression(repos):
