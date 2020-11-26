@@ -56,7 +56,7 @@ temp.show(30)
 # gc.collect()
 
 
-temp.createOrReplaceTempView("temp_table")
+temp.registerTempTable("temp_table")
 hive_context.sql("create table feature_table as select * from temp_table")
 
 # result = temp.rdd\
