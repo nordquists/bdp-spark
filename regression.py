@@ -16,7 +16,7 @@ def map_linear_regression(repo_name):
     # ts = hive_context.table("srn334.{}".format(INPUT_TABLE))
     # ts.registerTempTable('{}'.format(INPUT_TABLE))
 
-    ts = hive_context.sql("SELECT * FROM {} where repo = '{}'".format(INPUT_TABLE, repo_name))
+    ts = hive_context.sql("SELECT * FROM ts_monthly_preprocessed where repo = '" +  repo_name + "'")
     #
     # lr = LinearRegression()
     #
@@ -51,7 +51,9 @@ repos = ts.rdd.map(tuple).map(lambda (x, y, z): x)
 print(repos.take(100))
 print("LOADED {} REPOSITORIES: -----------------------------".format(repos.count()))
 
+print("STARTING REGRESSION MAP: --------------------------------")
 result = repos.map(map_linear_regression)
+print("FINISHED REGRESSION MAP: --------------------------------")
 
 print(result.take(100))
 
