@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1e257cee-79d8-4fe2-bb7f-452671f273d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/main1.py" beforeDir="false" afterPath="$PROJECT_DIR$/main1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/regression/linear.py" beforeDir="false" afterPath="$PROJECT_DIR$/regression/linear.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,14 +35,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="38" />
-          <entry key="py" value="9324" />
+          <entry key="py" value="9343" />
           <entry key="txt" value="700" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="738" />
-          <entry key="Python" value="9324" />
+          <entry key="Python" value="9343" />
         </counts>
       </usages-collector>
     </session>
@@ -73,23 +74,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#46#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utils/outliers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="18" lean-forward="true" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+            <state relative-caret-position="90">
+              <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
                 <marker date="1606407417726" expanded="true" signature="109:114" ph="..." />
@@ -101,15 +99,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/linear.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+            <state relative-caret-position="210">
+              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
               <folding>
-                <marker date="1606405612114" expanded="true" signature="38:43" ph="..." />
-                <marker date="1606405612114" expanded="true" signature="356:583" ph="..." />
-                <marker date="1606405612114" expanded="true" signature="618:619" ph="..." />
-                <marker date="1606405612114" expanded="true" signature="618:886" ph="..." />
-                <marker date="1606405612114" expanded="true" signature="618:891" ph="..." />
-                <marker date="1606405612114" expanded="true" signature="911:920" ph="..." />
+                <marker date="1606407671300" expanded="true" signature="38:43" ph="..." />
+                <marker date="1606407671300" expanded="true" signature="440:587" ph="..." />
+                <marker date="1606407671300" expanded="true" signature="622:623" ph="..." />
+                <marker date="1606407671300" expanded="true" signature="622:890" ph="..." />
+                <marker date="1606407671300" expanded="true" signature="622:895" ph="..." />
+                <marker date="1606407671300" expanded="true" signature="915:924" ph="..." />
               </folding>
             </state>
           </provider>
@@ -183,8 +181,8 @@
     <findStrings>
       <find>schema</find>
       <find>with</find>
-      <find>lin</find>
       <find>getOut</find>
+      <find>lin</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -214,8 +212,8 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/obstacles.txt" />
         <option value="$PROJECT_DIR$/regression/linear.py" />
-        <option value="$PROJECT_DIR$/utils/outliers.py" />
         <option value="$PROJECT_DIR$/main1.py" />
+        <option value="$PROJECT_DIR$/utils/outliers.py" />
       </list>
     </option>
   </component>
@@ -457,31 +455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/regression/linear.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-          <folding>
-            <marker date="1606405612114" expanded="true" signature="38:43" ph="..." />
-            <marker date="1606405612114" expanded="true" signature="356:583" ph="..." />
-            <marker date="1606405612114" expanded="true" signature="618:619" ph="..." />
-            <marker date="1606405612114" expanded="true" signature="618:886" ph="..." />
-            <marker date="1606405612114" expanded="true" signature="618:891" ph="..." />
-            <marker date="1606405612114" expanded="true" signature="911:920" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-end-line="14" />
-          <folding>
-            <marker date="1606403615952" expanded="true" signature="707:745" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pipeline/features.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -500,23 +473,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/outliers.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" lean-forward="true" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        <state relative-caret-position="195">
+          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-end-line="14" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
-            <marker date="1606407417726" expanded="true" signature="109:114" ph="..." />
+            <marker date="1606403615952" expanded="true" signature="707:745" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+        <state relative-caret-position="75">
+          <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/linear.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
           <folding>
-            <element signature="e#0#46#0" expanded="true" />
+            <marker date="1606407671300" expanded="true" signature="38:43" ph="..." />
+            <marker date="1606407671300" expanded="true" signature="440:587" ph="..." />
+            <marker date="1606407671300" expanded="true" signature="622:623" ph="..." />
+            <marker date="1606407671300" expanded="true" signature="622:890" ph="..." />
+            <marker date="1606407671300" expanded="true" signature="622:895" ph="..." />
+            <marker date="1606407671300" expanded="true" signature="915:924" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/outliers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <marker date="1606407417726" expanded="true" signature="109:114" ph="..." />
           </folding>
         </state>
       </provider>

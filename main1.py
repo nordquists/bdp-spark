@@ -21,11 +21,10 @@ ts = hive_context.sql("SELECT * FROM ts_filtered where lower(repo) = 'facebook/r
 
 ts = ts.fillna({'score': 0, 'week': 0, 'repo': ''})
 
-train = get_train_split(ts)
-train = exclude_outliers(np.array(train.select('score').collect()).flatten(), train)
-eval = get_eval_split(ts)
-eval = exclude_outliers(np.array(train.select('score').collect()).flatten(), eval)
+ts = exclude_outliers(np.array(ts.select('score').collect()).flatten(), ts)
 
+train = get_train_split(ts)
+eval = get_eval_split(ts)
 
 x = np.array(train.select('week').collect()).flatten()
 y = np.array(train.select('score').collect()).flatten()

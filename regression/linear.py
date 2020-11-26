@@ -12,14 +12,14 @@ class LinearRegression:
 
     def fit(self, x, y, order=1):
         self.__fitted = numpy.polyfit(x, y, order)
+        self.__slope = self.__fitted[0]
+        self.__intercept = self.__fitted[1]
 
     def predict(self, x):
         if self.__fitted is None:
             return None
 
         predictions = numpy.polyval(self.__fitted, x)
-        self.__intercept = predictions[0]
-        self.__slope = predictions[1]
 
         return predictions
 
