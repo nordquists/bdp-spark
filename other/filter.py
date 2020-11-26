@@ -16,26 +16,12 @@ hive_context = HiveContext(sc)
 
 input = sc.textFile("hdfs://dumbo/user/srn334/final/indices/")
 
-newdata = input.map(lambda line: line.split(","))
+original_df = input.map(lambda line: line.split(",")).toDF("repo", "week", "score")
 
-result = newdata.map(lambda (x, y, z): (x, int(z))).reduceByKey(lambda a, b: a + b)
+sum_df = input.map(lambda line: line.split(",")).map(lambda (x, y, z): (x, int(z))).reduceByKey(lambda a, b: a + b).toDF("repo", "score")
 
-schema_ts = StructType([
-    StructField("repo", StringType()),
-    StructField("week", IntegerType()),
-    StructField("score", DoubleType())
-])
-
-original_df = hive_context.createDataFrame(newdata, schema=schema_ts)
 
 original_df.show(5)
-
-schema_ts = StructType([
-    StructField("repo", StringType()),
-    StructField("score", DoubleType())
-])
-
-sum_df = hive_context.createDataFrame(result, schema=schema_ts)
 
 sum_df.show(6)
 
