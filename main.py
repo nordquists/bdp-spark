@@ -81,6 +81,9 @@ train = get_train_split(temp)
 eval = get_eval_split(temp)
 fitted = gbt.fit(train)
 y = (fitted.transform(eval).withColumn("prediction", f.col("prediction")).withColumn("score", f.col("score")))
+
+y.show(30)
+
 eval_ = RegressionEvaluator(labelCol="score", predictionCol="prediction", metricName="rmse")
 rmse = eval_.evaluate(y)
 print('rmse is %.2f' %rmse)
@@ -90,4 +93,4 @@ r2 = eval_.evaluate(y, {eval_.metricName: "r2"})
 print('r2 is %.2f' %r2)
 
 with open('model.model', "wb") as file:
-    pickle.dump(gbt, file)
+    pickle.dump(fitted, file)
