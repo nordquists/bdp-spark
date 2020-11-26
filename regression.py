@@ -69,7 +69,7 @@ ts = hive_context.sql("SELECT * FROM {} WHERE month < {}".format(INPUT_TABLE, st
 
 entries = ts.select("repo").distinct
 
-df = ts.groupBy("repo").agg(f.collect_list("week"), f.collect_list("score"))
+df = ts.groupBy("repo").agg(f.collect_list("month"), f.collect_list("score"))
 
 df.show(100)
 
