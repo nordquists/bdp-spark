@@ -24,7 +24,7 @@ ts = ts.fillna({'score': 0, 'day': 0, 'repo': ''})
 
 repo_name = ts.select('repo').collect()[0][0]
 days = ts.select('day').collect()
-missing_x = set(range(0, 260))
+missing_x = set(range(1, 260))
 
 for day in days:
     if day[0] in missing_x:
