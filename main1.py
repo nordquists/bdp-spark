@@ -78,5 +78,5 @@ y_plot = fit.predict(1, 52, typ='levels')
 
 plt.scatter(x, y, color="blue")
 plt.scatter(x_hat, y_hat, color="red")
-plt.plot(x_plot, pred, color="red")
+plt.plot(x_plot, y_plot, color="red")
 plt.show()
