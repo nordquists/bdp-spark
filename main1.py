@@ -79,13 +79,16 @@ y_plot_lr = lr.predict(x_plot)
 
 plt.scatter(x, y, color="blue")
 plt.scatter(x_hat, y_hat, color="red")
-plt.plot(x_plot, y_plot, color="red")
-plt.plot(x_plot, y_plot_lr, color="green")
+plt.plot(x_plot, y_plot, label="ARIMA",color="red")
+plt.plot(x_plot, y_plot_lr,label="LR", color="green")
 
 plt.xlim([0, 350])
 plt.ylim([0, 250])
 
+plt.title('GitHub Repo Activity Over Time')
 plt.xlabel('Time (Days)', fontsize=18)
 plt.ylabel('Activity Index', fontsize=16)
+
+plt.legend()
 
 plt.show()
