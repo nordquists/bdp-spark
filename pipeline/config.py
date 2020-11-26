@@ -1,5 +1,5 @@
 from pyspark.sql.types import *
-from pyspark.ml.linalg import VectorUDT
+from pyspark.mllib.linalg import VectorUDT
 
 TRAIN_WEEKS = 40
 TARGET = 'score'
