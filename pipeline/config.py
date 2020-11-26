@@ -1,7 +1,7 @@
 from pyspark.sql.types import *
 from pyspark.mllib.linalg import VectorUDT
 
-TRAIN_WEEKS = 30
+TRAIN_WEEKS = 275
 TARGET = 'score'
 
 # Defining schema for our time series data

@@ -15,19 +15,19 @@ hive_context = HiveContext(sc)
 sc.setLogLevel("WARN")
 
 # Register our time series data
-ts = hive_context.table("srn334.ts_filtered")
-ts.registerTempTable('ts_filtered')
+ts = hive_context.table("srn334.ts_day")
+ts.registerTempTable('ts_day')
 
-ts = hive_context.sql("SELECT * FROM ts_filtered where lower(repo) = 'facebook/react-native'") # facebook/react-native
+ts = hive_context.sql("SELECT * FROM ts_day where lower(repo) = 'facebook/react-native'") # facebook/react-native
 
-ts = ts.fillna({'score': 0, 'week': 0, 'repo': ''})
+ts = ts.fillna({'score': 0, 'day': 0, 'repo': ''})
 
 ts = exclude_outliers(np.array(ts.select('score').collect()).flatten(), ts)
 
 train = get_train_split(ts)
 eval = get_eval_split(ts)
 
-x = np.array(train.select('week').collect()).flatten()
+x = np.array(train.select('day').collect()).flatten()
 y = np.array(train.select('score').collect()).flatten()
 #
 # lr = LinearRegression()
@@ -53,7 +53,7 @@ for p in range(6):
                 pass
 
 
-x_hat = np.array(eval.select('week').collect()).flatten()
+x_hat = np.array(eval.select('day').collect()).flatten()
 y_hat = np.array(eval.select('score').collect()).flatten()
 
 
@@ -73,8 +73,8 @@ y_hat = np.array(eval.select('score').collect()).flatten()
 
 
 
-x_plot = range(0, 52)
-y_plot = fit.predict(1, 52, typ='levels')
+x_plot = range(0, 365)
+y_plot = fit.predict(1, 365, typ='levels')
 
 plt.scatter(x, y, color="blue")
 plt.scatter(x_hat, y_hat, color="red")
