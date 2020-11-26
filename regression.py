@@ -14,4 +14,9 @@ ts.registerTempTable('{}'.format(INPUT_TABLE))
 
 ts = hive_context.sql("SELECT * FROM {}".format(INPUT_TABLE))
 
+# First we find all of the repositories that we will run a regression on.
+repos = ts.rdd.map(lambda (x, y, z): x)
+
+
+
 
