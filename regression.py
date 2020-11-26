@@ -13,17 +13,17 @@ sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
 # sc.setLogLevel("OFF")
 
-def map_linear_regression(repo_name):
+def map_linear_regression(repo_name, x, y):
     # # We have to
     # repo_ts = hive_context.table("srn334.{}".format(INPUT_TABLE))
     # repo_ts.registerTempTable('{}'.format(INPUT_TABLE))
     #
-    repo_ts = hive_context.sql("SELECT * FROM ts_monthly_preprocessed where repo = '" +  repo_name + "'")
+    # repo_ts = hive_context.sql("SELECT * FROM ts_monthly_preprocessed where repo = '" +  repo_name + "'")
+
+    x = np.array(x)
+    y = np.array(y)
 
     lr = LinearRegression()
-
-    x = np.array(ts.select('day').collect()).flatten()
-    y = np.array(ts.select('score').collect()).flatten()
 
     lr.fit(x, y)
     predictions = lr.predict(x)
@@ -71,8 +71,9 @@ entries = ts.select("repo").distinct
 
 df = ts.groupBy("repo").agg(f.collect_list("month"), f.collect_list("score"))
 
-df.show(100)
+result = df.rdd.map(tuple).map(map_linear_regression)
 
+result.take(10)
 
 #
 # print(OUTPUT_DIR)
