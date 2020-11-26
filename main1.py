@@ -6,8 +6,7 @@ from utils.outliers import exclude_outliers
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
-from statsmodels.tsa.arima_model import ARIMA
-import statsmodels.api as sm
+from statsmodels as sm
 
 matplotlib.use('tkagg')
 
