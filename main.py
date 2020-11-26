@@ -92,7 +92,7 @@ print('mae is %.2f' %mae)
 r2 = eval_.evaluate(y, {eval_.metricName: "r2"})
 print('r2 is %.2f' %r2)
 
-print(fitted.intercepts)
+print(fitted.intercept)
 print(fitted.weights)
 
 
