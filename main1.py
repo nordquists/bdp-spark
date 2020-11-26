@@ -85,7 +85,7 @@ plt.scatter(x, y, color="blue")
 plt.scatter(x_hat, y_hat, color="red")
 plt.plot(x_plot, y_plot, label="ARIMA",color="red")
 plt.plot(x_plot, y_plot_lr,label="LR", color="green")
-plt.plot(range(0, 260), y_av, label="7d SMA", color="purple")
+plt.plot(range(1, 260), y_av, label="7d SMA", color="purple")
 
 # plt.xlim([0, 325])
 # plt.ylim([50, 150])
