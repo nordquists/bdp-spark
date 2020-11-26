@@ -57,7 +57,7 @@ def map_linear_regression(line):
     # repo_ts.registerTempTable('{}'.format(INPUT_TABLE))
     #
     # repo_ts = hive_context.sql("SELECT * FROM ts_monthly_preprocessed where repo = '" +  repo_name + "'")
-    repo_name, x, y = line.split(',')
+    repo_name, x, y = line
 
     x = np.array(x)
     y = np.array(y)
