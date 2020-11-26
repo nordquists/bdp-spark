@@ -22,6 +22,18 @@ ts = hive_context.sql("SELECT * FROM ts_day where lower(repo) = 'jepsen-io/jepse
 
 ts = ts.fillna({'score': 0, 'day': 0, 'repo': ''})
 
+repo_name = ts.select('repo').collect()[0][0]
+days = ts.select('day').collect()
+missing_x = set(range(0, 260))
+
+for day in days:
+    if day[0] in missing_x:
+        missing_x.remove(day[0])
+
+for day in missing_x:
+    new_row = sc.createDataFrame(([repo_name, day, 0]), ['repo', 'day', 'score'])
+    ts = ts.union(new_row)
+
 # ts = exclude_outliers(np.array(ts.select('score').collect()).flatten(), ts)
 
 train = get_train_split(ts)
