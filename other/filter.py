@@ -20,7 +20,7 @@ original_df = input.map(lambda line: line.split(",")).toDF(["repo", "week", "sco
 
 sum_df = input.map(lambda line: line.split(",")).map(lambda (x, y, z): (x, int(z))).reduceByKey(lambda a, b: a + b).toDF(["repo", "score"])
 
-sum_df = sum_df.filter(f.col('score') > 10000)
+sum_df = sum_df.filter(f.col('score') > 10)
 
 result_df = original_df.join(sum_df, ["repo"], "left_semi")
 
