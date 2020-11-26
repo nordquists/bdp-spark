@@ -65,10 +65,10 @@ y_hat = np.array(eval.select('score').collect()).flatten()
 predictions = lr.predict(x_hat)
 
 print("slope {}".format(str(lr.get_slope())))
-#
-# rmse, r2 = lr.evaluate(predictions, y_hat)
-#
-# print("rmse {}, r2 {}".format(str(rmse), str(r2)))
+
+rmse, r2 = lr.evaluate(predictions, y_hat)
+
+print("rmse {}, r2 {}".format(str(rmse), str(r2)))
 
 
 
@@ -81,4 +81,8 @@ plt.scatter(x, y, color="blue")
 plt.scatter(x_hat, y_hat, color="red")
 plt.plot(x_plot, y_plot, color="red")
 plt.plot(x_plot, y_plot_lr, color="green")
+
+plt.xticks(range(1, 315))
+plt.xticks(range(1, 250))
+
 plt.show()
