@@ -36,11 +36,11 @@ y = np.array(train.select('score').collect()).flatten()
 # lr.fit(x, y)
 
 # model = sm.tsa.statespace.SARIMAX(y, trend='c', order=(1,1,1))
-fit = SARIMAX(y,order=(7,1,7),freq='W',seasonal_order=(0,0,0,0),
-                                 enforce_stationarity=False, enforce_invertibility=False,).fit()
-# order = (2, 1, 2)
-# model = ARIMA(y, order, freq='W')
-# fit = model.fit()
+# fit = SARIMAX(y,order=(7,1,7),freq='W',seasonal_order=(0,0,0,0),
+#                                  enforce_stationarity=False, enforce_invertibility=False,).fit()
+order = (7, 1, 7)
+model = ARIMA(y, order, freq='W')
+fit = model.fit()
 
 
 
@@ -49,7 +49,7 @@ y_hat = np.array(eval.select('score').collect()).flatten()
 
 
 from sklearn.metrics import mean_squared_error
-pred = fit.predict(52,52)[1:]
+pred = fit.predict(40,52)
 print('ARIMA model MSE:{}'.format(mean_squared_error(y_hat,pred)))
 
 
