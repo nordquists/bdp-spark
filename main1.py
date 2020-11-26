@@ -82,7 +82,10 @@ plt.scatter(x_hat, y_hat, color="red")
 plt.plot(x_plot, y_plot, color="red")
 plt.plot(x_plot, y_plot_lr, color="green")
 
-plt.xticks(range(1, 315))
-plt.xticks(range(1, 250))
+plt.xlim([0, 350])
+plt.ylim([0, 250])
+
+plt.xlabel('Time (Days)', fontsize=18)
+plt.ylabel('Activity Index', fontsize=16)
 
 plt.show()
