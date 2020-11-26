@@ -1,4 +1,5 @@
 import gc
+import pickle
 from pyspark import SparkContext
 from pyspark.sql import HiveContext
 from pyspark.sql import *
@@ -69,7 +70,7 @@ temp.show(30)
 #
 # temp = hive_context.createDataFrame(newdata, schema=schema_ts)
 
-gbt = DecisionTreeRegressor(featuresCol='features', labelCol='score')
+gbt = LinearRegression(featuresCol='features', labelCol='score')
 train = get_train_split(temp)
 eval = get_eval_split(temp)
 fitted = gbt.fit(train)
@@ -81,4 +82,6 @@ mae = eval_.evaluate(y, {eval_.metricName: "mae"})
 print('mae is %.2f' %mae)
 r2 = eval_.evaluate(y, {eval_.metricName: "r2"})
 print('r2 is %.2f' %r2)
-gbt.save("/")
+
+with open('model.model', "wb") as file:
+    pickle.dump(gbt, file)

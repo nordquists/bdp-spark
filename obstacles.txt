@@ -17,3 +17,6 @@ I didn't realize you could give more memory to the executors so I spent a lot of
 
 # After removing elements with score less than 10,000
 from 70,466,976 entries to 14,627,795 entries
+
+baseline: average of all the previous versus current
+
