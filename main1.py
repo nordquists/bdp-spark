@@ -22,7 +22,7 @@ ts = hive_context.sql("SELECT * FROM ts_day where lower(repo) = 'facebook/react-
 
 ts = ts.fillna({'score': 0, 'day': 0, 'repo': ''})
 
-ts = exclude_outliers(np.array(ts.select('score').collect()).flatten(), ts)
+# ts = exclude_outliers(np.array(ts.select('score').collect()).flatten(), ts)
 
 train = get_train_split(ts)
 eval = get_eval_split(ts)
@@ -30,9 +30,9 @@ eval = get_eval_split(ts)
 x = np.array(train.select('day').collect()).flatten()
 y = np.array(train.select('score').collect()).flatten()
 #
-# lr = LinearRegression()
-#
-# lr.fit(x, y)
+lr = LinearRegression()
+
+lr.fit(x, y)
 
 # model = sm.tsa.statespace.SARIMAX(y, trend='c', order=(1,1,1))
 # fit = SARIMAX(y,order=(7,1,7),freq='W',seasonal_order=(0,0,0,0),
@@ -62,9 +62,9 @@ y_hat = np.array(eval.select('score').collect()).flatten()
 # print('ARIMA model MSE:{}'.format(mean_squared_error(y_hat,pred)))
 
 
-# predictions = lr.predict(x_hat)
-#
-# print("slope {}".format(str(lr.get_slope())))
+predictions = lr.predict(x_hat)
+
+print("slope {}".format(str(lr.get_slope())))
 #
 # rmse, r2 = lr.evaluate(predictions, y_hat)
 #
@@ -75,8 +75,10 @@ y_hat = np.array(eval.select('score').collect()).flatten()
 
 x_plot = range(0, 365)
 y_plot = fit.predict(1, 365, typ='levels')
+y_plot_lr = lr.predict(x_plot)
 
 plt.scatter(x, y, color="blue")
 plt.scatter(x_hat, y_hat, color="red")
 plt.plot(x_plot, y_plot, color="red")
+plt.plot(x_plot, y_plot_lr, color="green")
 plt.show()
