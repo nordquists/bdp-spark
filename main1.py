@@ -39,7 +39,7 @@ y = np.array(train.select('score').collect()).flatten()
 #                                  enforce_stationarity=False, enforce_invertibility=False,).fit()
 order = (1, 0, 1)
 model = ARIMA(y, order, freq='D')
-fit = model.fit()
+fit = model.fit(transparams=True)
 
 # for p in range(6):
 #     for d in range(2):
