@@ -59,9 +59,9 @@ x_hat = np.array(eval.select('week').collect()).flatten()
 y_hat = np.array(eval.select('score').collect()).flatten()
 
 
-from sklearn.metrics import mean_squared_error
-pred = fit.predict(40,52)
-print('ARIMA model MSE:{}'.format(mean_squared_error(y_hat,pred)))
+# from sklearn.metrics import mean_squared_error
+# pred = fit.predict(40,52, typ='levels')
+# print('ARIMA model MSE:{}'.format(mean_squared_error(y_hat,pred)))
 
 
 # predictions = lr.predict(x_hat)
@@ -76,7 +76,7 @@ print('ARIMA model MSE:{}'.format(mean_squared_error(y_hat,pred)))
 
 
 x_plot = range(0, 52)
-# y_plot = fit.predict(1, 52, typ='levels')
+y_plot = fit.predict(1, 52, typ='levels')
 
 plt.scatter(x, y, color="blue")
 plt.scatter(x_hat, y_hat, color="red")
