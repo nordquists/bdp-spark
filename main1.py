@@ -18,7 +18,7 @@ sc.setLogLevel("WARN")
 ts = hive_context.table("srn334.ts_filtered")
 ts.registerTempTable('ts_filtered')
 
-ts = hive_context.sql("SELECT * FROM ts_filtered where lower(repo) = 'thecherno/hazel'") # facebook/react-native
+ts = hive_context.sql("SELECT * FROM ts_filtered where lower(repo) = 'facebook/react-native'") # facebook/react-native
 
 ts = ts.fillna({'score': 0, 'week': 0, 'repo': ''})
 
@@ -37,7 +37,7 @@ y = np.array(train.select('score').collect()).flatten()
 # model = sm.tsa.statespace.SARIMAX(y, trend='c', order=(1,1,1))
 # fit = SARIMAX(y,order=(7,1,7),freq='W',seasonal_order=(0,0,0,0),
 #                                  enforce_stationarity=False, enforce_invertibility=False,).fit()
-order = (7, 1, 7)
+order = (2, 1, 2)
 model = ARIMA(y, order, freq='W')
 fit = model.fit()
 
