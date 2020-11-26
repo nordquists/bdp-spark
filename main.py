@@ -15,7 +15,7 @@ import pyspark.sql.functions as f
 
 sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
-"""
+
 # Register our time series data
 ts = hive_context.table("srn334.ts")
 ts.registerTempTable('ts')
@@ -48,7 +48,7 @@ features = VectorAssembler(inputCols=[one_hot_encoder.getOutputCol()] + ['week']
 pipeline = Pipeline(stages=[indexer, one_hot_encoder, features])
 
 temp = pipeline.fit(ts).transform(ts)
-"""
+
 
 # ts.unpersist()
 # del ts
@@ -58,15 +58,15 @@ temp = pipeline.fit(ts).transform(ts)
 # temp.createOrReplaceTempView("temp_table")
 # hive_context.sql("create table feature_table as select * from temp_table")
 
-# result = temp.rdd\
-#     .map(tuple).map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))\
-#     .saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output1/")
+result = temp.rdd\
+    .map(tuple).map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{},{}".format(repo,week,str(features),str(score)))\
+    .saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output1/")
 
-input = sc.textFile("hdfs://dumbo/user/srn334/final/test_output1")
-
-newdata = input.map(lambda line: line.split(","))
-
-temp = hive_context.createDataFrame(newdata, schema=schema_ts)
+# input = sc.textFile("hdfs://dumbo/user/srn334/final/test_output1")
+#
+# newdata = input.map(lambda line: line.split(","))
+#
+# temp = hive_context.createDataFrame(newdata, schema=schema_ts)
 
 gbt = GBTRegressor(featuresCol='features', labelCol='score')
 train = get_train_split(temp)
