@@ -4,6 +4,6 @@ import numpy as np
 
 
 def exclude_outliers(y, df):
-    quartile1, quartile2 = np.percentile(y, 10), np.percentile(y, 90)
+    quartile1, quartile2 = np.percentile(y, 25), np.percentile(y, 75)
     filtered_df = df.filter(f.col('score').between(quartile1, quartile2))
     return filtered_df
