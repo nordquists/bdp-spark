@@ -13,27 +13,26 @@ sc.setLogLevel("OFF")
 
 def map_linear_regression(repo_name):
     print(repo_name)
-    # global hive_context
-    # global INPUT_TABLE
-    #
-    # # # We have to
-    # # ts = hive_context.table("srn334.{}".format(INPUT_TABLE))
-    # # ts.registerTempTable('{}'.format(INPUT_TABLE))
-    #
-    # ts = hive_context.sql("SELECT * FROM {} where repo = '{}'".format(INPUT_TABLE, repo_name))
-    #
-    # lr = LinearRegression()
-    #
-    # x = np.array(ts.select('day').collect()).flatten()
-    # y = np.array(ts.select('score').collect()).flatten()
-    #
-    # predictions = lr.predict(x)
-    # rmse, r2 = lr.evaluate(predictions, y)
-    # slope = lr.get_slope()
-    # intercept = lr.get_intercept()
-    #
-    # return "{},{},{},{}".format(repo_name, slope, intercept, r2)
-    return ""
+    global hive_context
+    global INPUT_TABLE
+
+    # # We have to
+    # ts = hive_context.table("srn334.{}".format(INPUT_TABLE))
+    # ts.registerTempTable('{}'.format(INPUT_TABLE))
+
+    ts = hive_context.sql("SELECT * FROM {} where repo = '{}'".format(INPUT_TABLE, repo_name))
+
+    lr = LinearRegression()
+
+    x = np.array(ts.select('day').collect()).flatten()
+    y = np.array(ts.select('score').collect()).flatten()
+
+    predictions = lr.predict(x)
+    rmse, r2 = lr.evaluate(predictions, y)
+    slope = lr.get_slope()
+    intercept = lr.get_intercept()
+
+    return "{},{},{},{}".format(repo_name, slope, intercept, r2)
 
 def do_regression(repos):
     print("STARTING REGRESSION MAP: --------------------------------")
@@ -54,6 +53,9 @@ print(repos.take(100))
 print("LOADED {} REPOSITORIES: -----------------------------".format(repos.count()))
 
 result = repos.map(map_linear_regression)
+
+print(result.take(100))
+
 #
 # print(OUTPUT_DIR)
 #
