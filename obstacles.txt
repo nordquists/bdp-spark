@@ -20,3 +20,5 @@ from 70,466,976 entries to 14,627,795 entries
 
 baseline: average of all the previous versus current
 
+To avoid the mini seasonality we see in a week: the increase in activity on weekdays, we reduce our data to look at
+week long intervals

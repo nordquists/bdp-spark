@@ -21,7 +21,7 @@ hive_context = HiveContext(sc)
 ts = hive_context.table("srn334.ts_filtered")
 ts.registerTempTable('ts_filtered')
 
-ts = hive_context.sql("SELECT * FROM ts_filtered")
+ts = hive_context.sql("SELECT * FROM ts_filtered where repo = 'agronholm/apscheduler'")
 
 # input = sc.textFile("hdfs://dumbo/user/srn334/final/indices")
 #
@@ -34,19 +34,25 @@ category = "repo"
 
 ts = ts.fillna({'score': 0, 'week': 0, 'repo': ''})
 
-indexer = StringIndexer(inputCol=category,
-                         outputCol="{}_indexed".format(category), handleInvalid='skip')
+# indexer = StringIndexer(inputCol=category,
+#                          outputCol="{}_indexed".format(category), handleInvalid='skip')
+#
+# one_hot_encoder = OneHotEncoder(dropLast=True, inputCol=indexer.getOutputCol(),
+#                                  outputCol="{}_encoded".format(indexer.getOutputCol()))
+#
+# # This steps puts our features in a form that will be understood by the regression models
+# features = VectorAssembler(inputCols=[one_hot_encoder.getOutputCol()] + ['week'],
+#                             outputCol="features")
 
-one_hot_encoder = OneHotEncoder(dropLast=True, inputCol=indexer.getOutputCol(),
-                                 outputCol="{}_encoded".format(indexer.getOutputCol()))
-
-# This steps puts our features in a form that will be understood by the regression models
-features = VectorAssembler(inputCols=[one_hot_encoder.getOutputCol()] + ['week'],
+features = VectorAssembler(inputCols=['week'],
                             outputCol="features")
 
 # pca = PCA(k=5, inputCol="features", outputCol="pcaFeatures")
 
-pipeline = Pipeline(stages=[indexer, one_hot_encoder, features])
+# pipeline = Pipeline(stages=[indexer, one_hot_encoder, features])
+pipeline = Pipeline(stages=[ features])
+
+
 
 temp = pipeline.fit(ts).transform(ts)
 
