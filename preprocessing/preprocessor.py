@@ -16,35 +16,34 @@ def index_map(line):
 
     return "{},{}".format(repo, week), count
 
-class Preprocessor:
-    @staticmethod
-    def adjust_granularity(rdd, granularity='month'):
-        if granularity == 'month':
-            result = rdd.map(lambda row: ("{},{},{}".format(row[0], row[1], datetime.datetime.strptime(row[3],
-                                            '%Y-%m-%d %H:%M:%S %Z').month),row[4]))\
-                                            .reduceByKey(lambda a, b: a + b)
 
-        result = result.map(lambda (x, y): (x.split(',')[0], x.split(',')[1], x.split(',')[2], y))
-        result = result.map(lambda (x, y, z, a): "{},{},{},{}".format(x, y, str(z), str(a)))
+def adjust_granularity(rdd, granularity='month'):
+    if granularity == 'month':
+        result = rdd.map(lambda row: ("{},{},{}".format(row[0], row[1], datetime.datetime.strptime(row[3],
+                                        '%Y-%m-%d %H:%M:%S %Z').month),row[4]))\
+                                        .reduceByKey(lambda a, b: a + b)
 
-        return result
+    result = result.map(lambda (x, y): (x.split(',')[0], x.split(',')[1], x.split(',')[2], y))
+    result = result.map(lambda (x, y, z, a): "{},{},{},{}".format(x, y, str(z), str(a)))
 
-    @staticmethod
-    def create_index(rdd, weight_fork=1.3, weight_watch=1, weight_push=0.9):
-        result = rdd.map(lambda line: line.split(","))
-        result = result.map(index_map).reduceByKey(lambda a, b: a + b)
-        result = result.map(lambda (x, y): (x.split(',')[0], x.split(',')[1], y))
-        result = result.map(lambda (x, y, z): "{},{},{}".format(x, str(y), str(z)))
+    return result
 
-        return result
 
-    @staticmethod
-    def apply_filter(rdd, granularity='month', min_score=1000):
-        original_df = rdd.map(lambda line: line.split(",")).toDF(["repo", granularity, "score"])
-        sum_df = rdd.map(lambda line: line.split(",")).map(lambda (x, y, z): (x, int(z))).reduceByKey(
-            lambda a, b: a + b).toDF(["repo", "score"])
+def create_index(rdd, weight_fork=1.3, weight_watch=1, weight_push=0.9):
+    result = rdd.map(lambda line: line.split(","))
+    result = result.map(index_map).reduceByKey(lambda a, b: a + b)
+    result = result.map(lambda (x, y): (x.split(',')[0], x.split(',')[1], y))
+    result = result.map(lambda (x, y, z): "{},{},{}".format(x, str(y), str(z)))
 
-        sum_df = sum_df.filter(f.col('score') > min_score)
-        result_df = original_df.join(sum_df, ["repo"], "left_semi")
+    return result
 
-        return result_df.rdd.map(tuple).map(lambda (repo, week, score): "{},{},{}".format(repo,week,str(score)))
+
+def apply_filter(rdd, granularity='month', min_score=1000):
+    original_df = rdd.map(lambda line: line.split(",")).toDF(["repo", granularity, "score"])
+    sum_df = rdd.map(lambda line: line.split(",")).map(lambda (x, y, z): (x, int(z))).reduceByKey(
+        lambda a, b: a + b).toDF(["repo", "score"])
+
+    sum_df = sum_df.filter(f.col('score') > min_score)
+    result_df = original_df.join(sum_df, ["repo"], "left_semi")
+
+    return result_df.rdd.map(tuple).map(lambda (repo, week, score): "{},{},{}".format(repo,week,str(score)))
