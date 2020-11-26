@@ -34,3 +34,6 @@ class LinearRegression:
 
     def get_slope(self):
         return self.__slope
+
+    def get_intercept(self):
+        return self.__intercept

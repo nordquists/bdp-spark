@@ -1,6 +1,8 @@
 from pyspark import SparkContext
 from pyspark.sql import HiveContext
 import datetime
+import pyspark.sql.functions as f
+
 # from preprocessing.preprocessor import adjust_granularity, create_index, apply_filter
 
 def index_map(line):
