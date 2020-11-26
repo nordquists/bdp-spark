@@ -87,8 +87,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="90" column="10" lean-forward="true" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="10" />
+            <state relative-caret-position="349">
+              <caret line="37" column="53" lean-forward="true" selection-start-line="37" selection-start-column="53" selection-end-line="37" selection-end-column="53" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -465,17 +465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/outliers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-            <marker date="1606412087542" expanded="true" signature="109:114" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/other/filter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -525,10 +514,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils/outliers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <marker date="1606412087542" expanded="true" signature="109:114" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="90" column="10" lean-forward="true" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="10" />
+        <state relative-caret-position="349">
+          <caret line="37" column="53" lean-forward="true" selection-start-line="37" selection-start-column="53" selection-end-line="37" selection-end-column="53" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
