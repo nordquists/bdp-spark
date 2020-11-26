@@ -6,7 +6,8 @@ from utils.outliers import exclude_outliers
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
-import statsmodels as sm
+from statsmodels.tsa.arima_model import ARIMA
+from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 matplotlib.use('tkagg')
 
@@ -35,7 +36,7 @@ y = np.array(train.select('score').collect()).flatten()
 # lr.fit(x, y)
 
 # model = sm.tsa.statespace.SARIMAX(y, trend='c', order=(1,1,1))
-fit = sm.tsa.statespace.SARIMAX(y,order=(7,1,7),freq='W',seasonal_order=(0,0,0,0),
+fit = SARIMAX(y,order=(7,1,7),freq='W',seasonal_order=(0,0,0,0),
                                  enforce_stationarity=False, enforce_invertibility=False,).fit()
 # order = (2, 1, 2)
 # model = ARIMA(y, order, freq='W')
