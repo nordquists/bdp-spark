@@ -6,6 +6,11 @@ TARGET = 'score'
 # Defining schema for our time series data
 schema_ts = StructType([
     StructField("repo", StringType()),
-    StructField("features", IntegerType()),
+    StructField("week", IntegerType()),
+    StructField("features", ArrayType(StructType([
+        StructField("week", DoubleType()),
+        StructField("week", DoubleType()),
+        StructField("week", DoubleType())
+    ]))),
     StructField("score", DoubleType())
 ])
