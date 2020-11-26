@@ -50,7 +50,7 @@ ts = hive_context.sql("SELECT * FROM {} WHERE month < {}".format(INPUT_TABLE, st
 # First we find all of the repositories that we will run a regression on.
 print("LOADING REPOSITORIES: ------------------------------------")
 repos = ts.rdd.map(tuple).map(lambda (x, y, z): x)
-print(repos)
+print(repos.take(100))
 print("LOADED {} REPOSITORIES: -----------------------------".format(repos.count()))
 
 # result = do_regression(repos)
