@@ -16,7 +16,7 @@ def map_linear_regression(repo_name):
     # ts = hive_context.table("srn334.{}".format(INPUT_TABLE))
     # ts.registerTempTable('{}'.format(INPUT_TABLE))
 
-    # ts = hive_context.sql("SELECT * FROM {} where repo = '{}'".format(INPUT_TABLE, repo_name))
+    ts = hive_context.sql("SELECT * FROM {} where repo = '{}'".format(INPUT_TABLE, repo_name))
     #
     # lr = LinearRegression()
     #
@@ -29,6 +29,8 @@ def map_linear_regression(repo_name):
     # intercept = lr.get_intercept()
     #
     # return "{},{},{},{}".format(repo_name, slope, intercept, r2)
+    ts.show(10)
+
     return "{},1".format(repo_name)
 
 def do_regression(repos):
