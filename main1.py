@@ -37,10 +37,22 @@ y = np.array(train.select('score').collect()).flatten()
 # model = sm.tsa.statespace.SARIMAX(y, trend='c', order=(1,1,1))
 # fit = SARIMAX(y,order=(7,1,7),freq='W',seasonal_order=(0,0,0,0),
 #                                  enforce_stationarity=False, enforce_invertibility=False,).fit()
-order = (1, 0, 1)
-model = ARIMA(y, order, freq='W')
-fit = model.fit()
+# order = (1, 0, 1)
+# model = ARIMA(y, order, freq='W')
+# fit = model.fit()
 
+for p in range(6):
+    for d in range(2):
+        for q in range(4):
+            try:
+                fit=ARIMA(y,(p,d,q)).fit(transparams=True)
+
+                x=fit.aic
+
+                x1= p,d,q
+                print (x1,x)
+            except:
+                pass
 
 
 x_hat = np.array(eval.select('week').collect()).flatten()
