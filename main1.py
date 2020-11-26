@@ -37,7 +37,7 @@ y = np.array(train.select('score').collect()).flatten()
 # model = sm.tsa.statespace.SARIMAX(y, trend='c', order=(1,1,1))
 # fit = SARIMAX(y,order=(7,1,7),freq='W',seasonal_order=(0,0,0,0),
 #                                  enforce_stationarity=False, enforce_invertibility=False,).fit()
-order = (1, 0, 1)
+order = (5, 1, 1)
 model = ARIMA(y, order, freq='D')
 fit = model.fit(transparams=True)
 
