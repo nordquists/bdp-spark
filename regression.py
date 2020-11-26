@@ -10,7 +10,7 @@ OUTPUT_DIR = "hdfs://dumbo/user/srn334/final/regression{}/".format(str(TRAINING_
 
 sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
-# sc.setLogLevel("OFF")
+sc.setLogLevel("OFF")
 
 
 class LinearRegression:
@@ -112,7 +112,8 @@ df = ts.groupBy("repo").agg(f.collect_list("month"), f.collect_list("score"))
 
 result = df.rdd.map(tuple).map(map_linear_regression)
 
-result.take(10)
+print("STARTING REGRESSION MAP: --------------------------------")
+print(result.take(10))
 
 #
 # print(OUTPUT_DIR)
