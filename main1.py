@@ -24,7 +24,7 @@ ts = ts.fillna({'score': 0, 'day': 0, 'repo': ''})
 
 repo_name = ts.select('repo').collect()[0][0]
 days = ts.select('day').collect()
-missing_x = set(range(1, 259))
+missing_x = set(range(1, 260))
 
 for day in days:
     if day[0] in missing_x:
@@ -97,7 +97,7 @@ plt.scatter(x, y, color="blue")
 plt.scatter(x_hat, y_hat, color="red")
 plt.plot(x_plot, y_plot, label="ARIMA",color="red")
 plt.plot(x_plot, y_plot_lr,label="LR", color="green")
-plt.plot(range(1, 260), y_av, label="30d SMA", color="purple")
+plt.plot(range(1, 261), y_av, label="30d SMA", color="purple")
 
 # plt.xlim([0, 325])
 # plt.ylim([50, 150])
