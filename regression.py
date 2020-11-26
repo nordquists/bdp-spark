@@ -12,10 +12,6 @@ hive_context = HiveContext(sc)
 sc.setLogLevel("OFF")
 
 def map_linear_regression(repo_name):
-    print(repo_name)
-    global hive_context
-    global INPUT_TABLE
-
     # # We have to
     # ts = hive_context.table("srn334.{}".format(INPUT_TABLE))
     # ts.registerTempTable('{}'.format(INPUT_TABLE))
