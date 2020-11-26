@@ -7,6 +7,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 from statsmodels.tsa.arima_model import ARIMA
+import statsmodels.api as sm
 
 matplotlib.use('tkagg')
 
@@ -33,12 +34,24 @@ y = np.array(train.select('score').collect()).flatten()
 # lr = LinearRegression()
 #
 # lr.fit(x, y)
-order = (2, 1, 2)
-model = ARIMA(y, order, freq='W')
-fit = model.fit()
+
+# model = sm.tsa.statespace.SARIMAX(y, trend='c', order=(1,1,1))
+fit = sm.tsa.statespace.SARIMAX(y,order=(7,1,7),freq='D',seasonal_order=(0,0,0,0),
+                                 enforce_stationarity=False, enforce_invertibility=False,).fit()
+# order = (2, 1, 2)
+# model = ARIMA(y, order, freq='W')
+# fit = model.fit()
+
+
 
 x_hat = np.array(eval.select('week').collect()).flatten()
 y_hat = np.array(eval.select('score').collect()).flatten()
+
+
+from sklearn.metrics import mean_squared_error
+pred = fit.predict(52,52)[1:]
+print('ARIMA model MSE:{}'.format(mean_squared_error(y_hat,pred)))
+
 
 # predictions = lr.predict(x_hat)
 #
@@ -52,9 +65,9 @@ y_hat = np.array(eval.select('score').collect()).flatten()
 
 
 x_plot = range(0, 52)
-y_plot = fit.predict(1, 52, typ='levels')
+# y_plot = fit.predict(1, 52, typ='levels')
 
 plt.scatter(x, y, color="blue")
 plt.scatter(x_hat, y_hat, color="red")
-plt.plot(x_plot, y_plot, color="red")
+plt.plot(x_plot, pred, color="red")
 plt.show()
