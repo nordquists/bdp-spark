@@ -10,6 +10,7 @@ from pipeline.split import get_train_split, get_eval_split
 from pyspark.ml import Pipeline
 from pyspark.ml.feature import StringIndexer, OneHotEncoder, VectorAssembler
 from pyspark.ml.feature import PCA
+import pyspark.sql.functions as f
 
 
 sc = SparkContext.getOrCreate()
@@ -57,16 +58,16 @@ temp = pipeline.fit(ts).transform(ts)
 # temp.createOrReplaceTempView("temp_table")
 # hive_context.sql("create table feature_table as select * from temp_table")
 
-result = temp.rdd\
-    .map(tuple).map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))\
-    .saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output1/")
+# result = temp.rdd\
+#     .map(tuple).map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{}".format(repo,str(features),str(score)))\
+#     .saveAsTextFile("hdfs://dumbo/user/srn334/final/test_output1/")
 
 
 gbt = GBTRegressor(featuresCol='features', labelCol='score')
 train = get_train_split(temp)
 eval = get_eval_split(temp)
 fitted = gbt.fit(train)
-y = (fitted.transform(eval).withColumn("prediction").withColumn("score"))
+y = (fitted.transform(eval).withColumn("prediction", f.col("prediction")).withColumn("score", f.col("score")))
 eval_ = RegressionEvaluator(labelCol="score", predictionCol="prediction", metricName="rmse")
 rmse = eval_.evaluate(y)
 print('rmse is %.2f' %rmse)
