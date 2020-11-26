@@ -13,8 +13,8 @@ hive_context = HiveContext(sc)
 
 def map_linear_regression(repo_name):
     # # We have to
-    # ts = hive_context.table("srn334.{}".format(INPUT_TABLE))
-    # ts.registerTempTable('{}'.format(INPUT_TABLE))
+    repo_ts = hive_context.table("srn334.{}".format(INPUT_TABLE))
+    repo_ts.registerTempTable('{}'.format(INPUT_TABLE))
 
     repo_ts = hive_context.sql("SELECT * FROM ts_monthly_preprocessed where repo = '" +  repo_name + "'")
     #
@@ -23,6 +23,7 @@ def map_linear_regression(repo_name):
     # x = np.array(ts.select('day').collect()).flatten()
     # y = np.array(ts.select('score').collect()).flatten()
     #
+    # lr.fit(x, y)
     # predictions = lr.predict(x)
     # rmse, r2 = lr.evaluate(predictions, y)
     # slope = lr.get_slope()
