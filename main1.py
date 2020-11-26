@@ -35,9 +35,11 @@ y_hat = np.array(eval.select('score').collect()).flatten()
 
 predictions = lr.predict(x_hat)
 
-print(lr.get_slope())
+print("slope {}".format(str(lr.get_slope())))
 
 rmse, r2 = lr.evaluate(predictions, y_hat)
+
+print("rmse {}, r2 {}".format(str(rmse), str(r2)))
 
 plt.scatter(x, y)
 plt.show()

@@ -14,7 +14,7 @@ class LinearRegression:
         self.__fitted = numpy.polyfit(x, y, order)
 
     def predict(self, x):
-        if not self.__fitted:
+        if self.__fitted is not None:
             return None
 
         predictions = numpy.polyval(self.__fitted, x)
