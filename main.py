@@ -17,10 +17,10 @@ sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
 
 # Register our time series data
-ts = hive_context.table("srn334.ts")
-ts.registerTempTable('ts')
+ts = hive_context.table("srn334.ts_filtered")
+ts.registerTempTable('ts_filtered')
 
-ts = hive_context.sql("SELECT * FROM ts WHERE repo = 'cutsea110/aop' OR repo = 'mezgoodle/auto-formatter' OR repo = 'BearWare/TeamTalk5'")
+ts = hive_context.sql("SELECT * FROM ts_filtered")
 
 # input = sc.textFile("hdfs://dumbo/user/srn334/final/indices")
 #
