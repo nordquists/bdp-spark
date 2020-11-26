@@ -2,6 +2,7 @@ from regression.linear import LinearRegression
 from pyspark import SparkContext
 from pyspark.sql import HiveContext
 from pipeline.split import get_train_split, get_eval_split
+from utils.outliers import exclude_outliers
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -21,6 +22,7 @@ ts = hive_context.sql("SELECT * FROM ts_filtered where lower(repo) = 'facebook/r
 ts = ts.fillna({'score': 0, 'week': 0, 'repo': ''})
 
 train = get_train_split(ts)
+train = exclude_outliers(train)
 eval = get_eval_split(ts)
 
 x = np.array(train.select('week').collect()).flatten()
@@ -41,5 +43,10 @@ rmse, r2 = lr.evaluate(predictions, y_hat)
 
 print("rmse {}, r2 {}".format(str(rmse), str(r2)))
 
-plt.scatter(x, y)
+x_plot = range(0, 52)
+y_plot = lr.predict(x_plot)
+
+plt.scatter(x, y, color="blue")
+plt.scatter(x_hat, y_hat, color="red")
+plt.plot(x_plot, y_plot, color="red")
 plt.show()
