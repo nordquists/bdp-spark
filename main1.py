@@ -6,7 +6,7 @@ from utils.outliers import exclude_outliers
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
-from statsmodels as sm
+import statsmodels as sm
 
 matplotlib.use('tkagg')
 
