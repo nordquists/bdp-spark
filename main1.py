@@ -71,7 +71,11 @@ rmse, r2 = lr.evaluate(predictions, y_hat)
 print("rmse {}, r2 {}".format(str(rmse), str(r2)))
 
 
+def movingaverage(interval, window_size):
+    window= np.ones(int(window_size))/float(window_size)
+    return np.convolve(interval, window, 'same')
 
+y_av = movingaverage(y, 7)
 
 x_plot = range(0, 365)
 y_plot = fit.predict(1, 365, typ='levels')
@@ -81,6 +85,7 @@ plt.scatter(x, y, color="blue")
 plt.scatter(x_hat, y_hat, color="red")
 plt.plot(x_plot, y_plot, label="ARIMA",color="red")
 plt.plot(x_plot, y_plot_lr,label="LR", color="green")
+plt.plot(x_plot, y_av, label="7d SMA", color="purple")
 
 # plt.xlim([0, 325])
 # plt.ylim([50, 150])
