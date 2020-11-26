@@ -42,7 +42,7 @@ def create_index(rdd, weight_fork=1.3, weight_watch=1, weight_push=0.9):
 
 def apply_filter(rdd, granularity='month', min_score=1000):
     original_df = rdd.map(lambda line: line.split(",")).toDF(["repo", granularity, "score"])
-    sum_df = rdd.map(lambda line: line.split(",")).map(lambda (x, y, z): (x, int(z))).reduceByKey(
+    sum_df = rdd.map(lambda line: line.split(",")).map(lambda (x, y, z): (x, float(z))).reduceByKey(
         lambda a, b: a + b).toDF(["repo", "score"])
 
     sum_df = sum_df.filter(f.col('score') > min_score)
