@@ -23,7 +23,7 @@ class LinearRegression:
         self.__fitted = None
 
     def fit(self, x, y, order=1):
-        self.__fitted = numpy.polyfit(x, y, order)
+        self.__fitted = np.polyfit(x, y, order)
         self.__slope = self.__fitted[0]
         self.__intercept = self.__fitted[1]
 
@@ -31,16 +31,16 @@ class LinearRegression:
         if self.__fitted is None:
             return None
 
-        predictions = numpy.polyval(self.__fitted, x)
+        predictions = np.polyval(self.__fitted, x)
 
         return predictions
 
     def evaluate(self, predictions, y):
         abs_error = predictions - y
-        squared_error = numpy.square(abs_error)
-        mean_squared_error = numpy.mean(squared_error)
-        rmse = numpy.sqrt(mean_squared_error)
-        r2 = 1.0 - (numpy.var(abs_error) / numpy.var(y))
+        squared_error = np.square(abs_error)
+        mean_squared_error = np.mean(squared_error)
+        rmse = np.sqrt(mean_squared_error)
+        r2 = 1.0 - (np.var(abs_error) / np.var(y))
 
         return rmse, r2
 
@@ -51,12 +51,13 @@ class LinearRegression:
         return self.__intercept
 
 
-def map_linear_regression(repo_name, x, y):
+def map_linear_regression(line):
     # # We have to
     # repo_ts = hive_context.table("srn334.{}".format(INPUT_TABLE))
     # repo_ts.registerTempTable('{}'.format(INPUT_TABLE))
     #
     # repo_ts = hive_context.sql("SELECT * FROM ts_monthly_preprocessed where repo = '" +  repo_name + "'")
+    repo_name, x, y = line.split(',')
 
     x = np.array(x)
     y = np.array(y)
