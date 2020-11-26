@@ -31,7 +31,7 @@ for day in days:
         missing_x.remove(day[0])
 
 for day in missing_x:
-    new_row = sc.createDataFrame(([repo_name, day, 0]), ['repo', 'day', 'score'])
+    new_row = sqlContext.createDataFrame(([repo_name, day, 0]), ['repo', 'day', 'score'])
     ts = ts.union(new_row)
 
 # ts = exclude_outliers(np.array(ts.select('score').collect()).flatten(), ts)
