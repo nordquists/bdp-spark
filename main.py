@@ -57,7 +57,7 @@ temp.show(30)
 
 
 temp.registerTempTable("temp_table")
-hive_context.sql("create table srn334.feature_table as select * from temp_table")
+hive_context.sql("create external table srn334.feature_table as select * from temp_table")
 
 # result = temp.rdd\
 #     .map(tuple).map(lambda (repo, week, score, repo_indexed, repo_indexed_encoded, features): "{},{},{},{}".format(repo,week,str(features),str(score)))\
