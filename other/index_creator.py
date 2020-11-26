@@ -8,7 +8,7 @@ from pyspark import SparkContext
 
 sc = SparkContext.getOrCreate()
 
-input = sc.textFile("hdfs://dumbo/user/srn334/final/indexed_data")
+input = sc.textFile("hdfs://dumbo/user/srn334/final/indexed_data_days/")
 
 newdata = input.map(lambda line: line.split(","))
 
@@ -33,4 +33,4 @@ result = newdata.map(mapFunc).reduceByKey(lambda a, b: a + b)
 result_split = result.map(lambda (x, y): (x.split(',')[0], x.split(',')[1], y))
 result2 = result_split.map(lambda (x, y, z): "{},{},{}".format(x, str(y), str(z)))
 
-result2.saveAsTextFile("hdfs://dumbo/user/srn334/final/indices/")
+result2.saveAsTextFile("hdfs://dumbo/user/srn334/final/indices_day/")
