@@ -47,10 +47,8 @@ for p in range(6):
             try:
                 fit=ARIMA(y,(p,d,q)).fit(transparams=True)
 
-                x=fit.aic
-
                 x1= p,d,q
-                print (x1,x)
+                print (x1)
             except:
                 pass
 

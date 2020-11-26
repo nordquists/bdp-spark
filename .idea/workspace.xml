@@ -77,8 +77,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="61" column="35" lean-forward="true" selection-start-line="61" selection-start-column="35" selection-end-line="64" />
+            <state relative-caret-position="487">
+              <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -515,8 +515,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="61" column="35" lean-forward="true" selection-start-line="61" selection-start-column="35" selection-end-line="64" />
+        <state relative-caret-position="487">
+          <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
