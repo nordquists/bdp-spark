@@ -70,7 +70,7 @@ def map_linear_regression(line):
     slope = lr.get_slope()
     intercept = lr.get_intercept()
 
-    return "{},{},{},{}".format(repo_name, slope, intercept, r2)
+    return "{},{},{},{},{}".format(repo_name, slope, intercept, r2, len(x))
     # repo_ts.show(10)
     #
     # return "{},1".format(repo_name)
@@ -113,12 +113,12 @@ df = ts.groupBy("repo").agg(f.collect_list("month"), f.collect_list("score"))
 result = df.rdd.map(tuple).map(map_linear_regression)
 
 print("STARTING REGRESSION MAP: --------------------------------")
-print(result.take(10))
+# print(result.take(10))
 
 #
 # print(OUTPUT_DIR)
 #
-# result.saveAsTextFile(OUTPUT_DIR)
+result.saveAsTextFile(OUTPUT_DIR)
 
 
 
