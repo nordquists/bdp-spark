@@ -92,5 +92,9 @@ print('mae is %.2f' %mae)
 r2 = eval_.evaluate(y, {eval_.metricName: "r2"})
 print('r2 is %.2f' %r2)
 
-with open('model.model', "wb") as file:
-    pickle.dump(fitted, file)
+print(fitted.intercepts)
+print(fitted.weights)
+
+
+# with open('model.model', "wb") as file:
+#     pickle.dump(fitted, file)
