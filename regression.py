@@ -53,7 +53,7 @@ repos = ts.rdd.map(tuple).map(lambda (x, y, z): x)
 print(repos.take(100))
 print("LOADED {} REPOSITORIES: -----------------------------".format(repos.count()))
 
-# result = do_regression(repos)
+result = repos.map(map_linear_regression)
 #
 # print(OUTPUT_DIR)
 #
