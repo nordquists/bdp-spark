@@ -14,7 +14,7 @@ import pyspark.sql.functions as f
 sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
 
-input = sc.textFile("hdfs://dumbo/user/srn334/final/indices/")
+input = sc.textFile("hdfs://dumbo/user/srn334/final/indices_day/")
 
 original_df = input.map(lambda line: line.split(",")).toDF(["repo", "week", "score"])
 
@@ -26,4 +26,4 @@ result_df = original_df.join(sum_df, ["repo"], "left_semi")
 
 result_df.rdd\
     .map(tuple).map(lambda (repo, week, score): "{},{},{}".format(repo,week,str(score)))\
-    .saveAsTextFile("hdfs://dumbo/user/srn334/final/filtered/")
+    .saveAsTextFile("hdfs://dumbo/user/srn334/final/filtered_day/")
