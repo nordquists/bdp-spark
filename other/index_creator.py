@@ -20,11 +20,11 @@ def mapFunc(lines):
     count = int(lines[4].replace("'", "").replace('u',"").replace(')', "").strip())
 
     if type == 'ForkEvent':
-        count = 3 * 0
+        count = 1.3 * count
     elif type == 'WatchEvent':
         count = 1 * count
     elif type == 'PushEvent':
-        count = 1 * 0
+        count = 0.9 * count
 
     return "{},{},".format(repo, week), count
 
