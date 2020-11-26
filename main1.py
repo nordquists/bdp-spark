@@ -6,6 +6,7 @@ from utils.outliers import exclude_outliers
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
+from statsmodels.tsa.arima_model import ARIMA
 
 matplotlib.use('tkagg')
 
@@ -28,24 +29,30 @@ eval = get_eval_split(ts)
 
 x = np.array(train.select('week').collect()).flatten()
 y = np.array(train.select('score').collect()).flatten()
-
-lr = LinearRegression()
-
-lr.fit(x, y)
+#
+# lr = LinearRegression()
+#
+# lr.fit(x, y)
+order = (2, 1, 2)
+model = ARIMA(y, order, freq='W')
+fit = model.fit()
 
 x_hat = np.array(eval.select('week').collect()).flatten()
 y_hat = np.array(eval.select('score').collect()).flatten()
 
-predictions = lr.predict(x_hat)
+# predictions = lr.predict(x_hat)
+#
+# print("slope {}".format(str(lr.get_slope())))
+#
+# rmse, r2 = lr.evaluate(predictions, y_hat)
+#
+# print("rmse {}, r2 {}".format(str(rmse), str(r2)))
 
-print("slope {}".format(str(lr.get_slope())))
 
-rmse, r2 = lr.evaluate(predictions, y_hat)
 
-print("rmse {}, r2 {}".format(str(rmse), str(r2)))
 
 x_plot = range(0, 52)
-y_plot = lr.predict(x_plot)
+y_plot = fit.predict(1, 52, typ='levels')
 
 plt.scatter(x, y, color="blue")
 plt.scatter(x_hat, y_hat, color="red")

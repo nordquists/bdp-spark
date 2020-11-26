@@ -2,7 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e257cee-79d8-4fe2-bb7f-452671f273d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/utils/outliers.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/outliers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main1.py" beforeDir="false" afterPath="$PROJECT_DIR$/main1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ARGARCH.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ARIMA.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Autoregression.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/AutoregressionX.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/EWMA.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/GARCH.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/RegressionARIMA.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/test/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/test/resources/R_ARIMA_DataSet1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/test/resources/R_ARIMA_DataSet2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/test/test_ARIMA.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/test/test_Autoregression.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/test/test_AutoregressionX.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/test/test_EWMA.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/test/test_GARCH.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/test/test_RegressionARIMA.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,27 +40,27 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="45" />
+          <entry key="py" value="46" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="45" />
+          <entry key="Python" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="38" />
-          <entry key="py" value="9359" />
+          <entry key="py" value="9389" />
           <entry key="txt" value="700" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="738" />
-          <entry key="Python" value="9359" />
+          <entry key="Python" value="9389" />
         </counts>
       </usages-collector>
     </session>
@@ -65,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-end-line="14" />
+              <caret line="13" column="30" selection-start-line="13" selection-end-line="14" />
               <folding>
                 <marker date="1606403615952" expanded="true" signature="707:745" ph="..." />
               </folding>
@@ -73,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="526">
+              <caret line="44" column="47" lean-forward="true" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -85,7 +104,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/outliers.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
@@ -119,7 +138,7 @@
         <entry file="file://$PROJECT_DIR$/other/filter.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+              <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
               <folding>
                 <element signature="e#145#176#0" expanded="true" />
               </folding>
@@ -131,7 +150,7 @@
         <entry file="file://$PROJECT_DIR$/pipeline/features.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="213">
-              <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
               <folding>
                 <element signature="e#968#999#0" expanded="true" />
                 <marker date="1606341550148" expanded="true" signature="2411:2412" ph="..." />
@@ -153,19 +172,7 @@
         <entry file="file://$PROJECT_DIR$/pipeline/split.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="20" lean-forward="true" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pipeline/config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+              <caret column="20" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -214,8 +221,8 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/obstacles.txt" />
         <option value="$PROJECT_DIR$/regression/linear.py" />
-        <option value="$PROJECT_DIR$/main1.py" />
         <option value="$PROJECT_DIR$/utils/outliers.py" />
+        <option value="$PROJECT_DIR$/main1.py" />
       </list>
     </option>
   </component>
@@ -416,7 +423,7 @@
     <entry file="file://$PROJECT_DIR$/pipeline/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -450,7 +457,7 @@
     <entry file="file://$PROJECT_DIR$/pipeline/features.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
-          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
           <folding>
             <element signature="e#968#999#0" expanded="true" />
             <marker date="1606341550148" expanded="true" signature="2411:2412" ph="..." />
@@ -461,7 +468,7 @@
     <entry file="file://$PROJECT_DIR$/pipeline/split.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="20" lean-forward="true" selection-end-line="1" />
+          <caret column="20" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -483,7 +490,7 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-end-line="14" />
+          <caret line="13" column="30" selection-start-line="13" selection-end-line="14" />
           <folding>
             <marker date="1606403615952" expanded="true" signature="707:745" ph="..." />
           </folding>
@@ -493,19 +500,9 @@
     <entry file="file://$PROJECT_DIR$/other/filter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
           <folding>
             <element signature="e#145#176#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -517,6 +514,26 @@
           <folding>
             <element signature="e#0#25#0" expanded="true" />
             <marker date="1606408676671" expanded="true" signature="109:114" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/ARIMA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="58" column="2" lean-forward="true" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="44" column="47" lean-forward="true" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
