@@ -71,11 +71,11 @@ def map_linear_regression(line):
     intercept = lr.get_intercept()
 
     if len(cumsum) > 2:
-        dydx = (cumsum[-1] - cumsum[0]) / len(x)
+        dydx = (cumsum[-1] - cumsum[0]) / (len(x) * 7)
     else:
         dydx = slope
 
-    return "{},{},{},{},{},{}".format(repo_name, slope, intercept, r2, len(x), cumsum[-1], dydx)
+    return "{},{},{},{},{},{},{}".format(repo_name, slope, intercept, r2, len(x), cumsum[-1], dydx)
     # repo_ts.show(10)
     #
     # return "{},1".format(repo_name)
