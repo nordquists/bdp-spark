@@ -24,6 +24,8 @@ ts = rdd.map(lambda line: line.split(",")).toDF(["repo", "week", "score"])
 
 ts = ts.fillna({'score': 0, 'week': 0, 'repo': ''})
 
-
 cum_sum = ts.withColumn('cumsum', f.sum(f.col("score")).over(Window.partitionBy('repo').orderBy(f.col("week")).rowsBetween(-sys.maxsize, 0)))
-cum_sum.show(100)
+
+cum_sum = cum_sum.map(tuple).map(lambda (repo, week, score, cumsum): "{},{},{},{}".format(repo,week,str(score),cumsum))
+
+cum_sum.saveAsTextFile(OUTPUT_DIR)
