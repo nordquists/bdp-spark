@@ -18,7 +18,7 @@ sc.setLogLevel("WARN")
 ts = hive_context.table("srn334.ts_weekly_preprocessed")
 ts.registerTempTable('ts_weekly_preprocessed')
 
-ts = hive_context.sql("SELECT * FROM ts_day where lower(repo) = 'jepsen-io/jepsen'") # facebook/react-native
+ts = hive_context.sql("SELECT * FROM ts_weekly_preprocessed where lower(repo) = 'jepsen-io/jepsen'") # facebook/react-native
 
 ts = ts.fillna({'score': 0, 'day': 0, 'repo': ''})
 
