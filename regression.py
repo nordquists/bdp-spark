@@ -70,7 +70,7 @@ def map_linear_regression(line):
     slope = lr.get_slope()
     intercept = lr.get_intercept()
 
-    return "{},{},{},{},{}".format(repo_name, slope, intercept, r2, len(x))
+    return "{},{},{},{},{},{}".format(repo_name, slope, intercept, r2, len(x), max(y))
     # repo_ts.show(10)
     #
     # return "{},1".format(repo_name)

@@ -26,6 +26,10 @@ def adjust_granularity(rdd, granularity='month'):
         result = rdd.map(lambda row: ("{},{},{}".format(row[0], row[1], datetime.datetime.strptime(row[3],
                                         '%Y-%m-%d %H:%M:%S %Z').month),row[4]))\
                                         .reduceByKey(lambda a, b: a + b)
+    elif granularity == 'week':
+        result = rdd.map(lambda row: ("{},{},{}".format(row[0], row[1], datetime.datetime.strptime(row[3],
+                                       '%Y-%m-%d %H:%M:%S %Z').isocalendar()[1]),row[4])) \
+                                        .reduceByKey(lambda a, b: a + b)
 
     result = result.map(lambda (x, y): (x.split(',')[0], x.split(',')[1], x.split(',')[2], y))
     result = result.map(lambda (x, y, z, a): "{},{},{},{}".format(x, y, str(z), str(a)))
@@ -64,10 +68,10 @@ sc.setLogLevel("WARN")
 rdd = sc.textFile(INPUT_DIR)
 rdd = rdd.map(lambda line: line.split(","))
 
-rdd = adjust_granularity(rdd, granularity='month')
+rdd = adjust_granularity(rdd, granularity='week')
 
 rdd = create_index(rdd, weight_fork=1.3, weight_watch=1, weight_push=0.1)
 
-rdd = apply_filter(rdd, granularity='month', min_score=1000)
+rdd = apply_filter(rdd, granularity='week', min_score=1000)
 
 rdd.saveAsTextFile(OUTPUT_DIR)
