@@ -20,7 +20,7 @@ def index_mapper(line):
     if integral:
         index += derivative / integral
 
-    return "{},{}".format(repo_name, index)
+    return (repo_name, index)
 
 
 
@@ -34,6 +34,6 @@ result = ts.rdd.map(tuple).map(index_mapper)
 
 result = result.toDF(['repo', 'index']).orderBy('index', ascending=False)
 
-result = result.rdd.map(tuple)
+result = result.rdd.map(tuple).map(lambda (repo_name, index): "{},{}".format(repo_name, index))
 
 result.saveAsTextFile(OUTPUT_DIR)
