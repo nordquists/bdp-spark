@@ -3,7 +3,7 @@ from pyspark.sql import HiveContext
 import numpy as np
 import pyspark.sql.functions as f
 
-INPUT_TABLE = "ts_weekly_cumulative_preprocessed"
+INPUT_TABLE = "week_regression_cumulative"
 OUTPUT_DIR = "hdfs://dumbo/user/srn334/final/final_index/"
 
 sc = SparkContext.getOrCreate()
