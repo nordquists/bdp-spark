@@ -57,7 +57,7 @@ def map_linear_regression(line):
     # repo_ts.registerTempTable('{}'.format(INPUT_TABLE))
     #
     # repo_ts = hive_context.sql("SELECT * FROM ts_monthly_preprocessed where repo = '" +  repo_name + "'")
-    repo_name, x, y, cumsum = line
+    repo_name, x, cumsum = line
 
     x = np.array(x)
     y = np.array(cumsum)
@@ -71,11 +71,11 @@ def map_linear_regression(line):
     intercept = lr.get_intercept()
 
     if len(cumsum) > 2:
-        dydx = (cumsum[-1] - cumsum[-2]) / 7
+        dydx = (cumsum[-1] - cumsum[0]) / len(x)
     else:
         dydx = slope
 
-    return "{},{},{},{},{},{}".format(repo_name, slope, intercept, r2, len(x), sum(y), dydx)
+    return "{},{},{},{},{},{}".format(repo_name, slope, intercept, r2, len(x), cumsum[-1], dydx)
     # repo_ts.show(10)
     #
     # return "{},1".format(repo_name)
