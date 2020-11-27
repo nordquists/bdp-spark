@@ -34,7 +34,7 @@ for day in missing_x:
     new_row = hive_context.createDataFrame([(repo_name, day, 0)], ['repo', 'day', 'score'])
     ts = ts.unionAll(new_row)
 
-# ts = exclude_outliers(np.array(ts.select('score').collect()).flatten(), ts)
+ts = exclude_outliers(np.array(ts.select('score').collect()).flatten(), ts)
 
 train = get_train_split(ts)
 eval = get_eval_split(ts)
