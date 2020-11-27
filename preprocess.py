@@ -46,7 +46,7 @@ def create_index(rdd, weight_fork=1.3, weight_watch=1, weight_push=0.9):
     return result
 
 
-def apply_filter(rdd, granularity='month', min_score=1000):
+def apply_filter(rdd, granularity='month', min_score=500):
     original_df = rdd.map(lambda line: line.split(",")).toDF(["repo", granularity, "score"])
     sum_df = rdd.map(lambda line: line.split(",")).map(lambda (x, y, z): (x, float(z))).reduceByKey(
         lambda a, b: a + b).toDF(["repo", "score"])
@@ -70,8 +70,8 @@ rdd = rdd.map(lambda line: line.split(","))
 
 rdd = adjust_granularity(rdd, granularity='week')
 
-rdd = create_index(rdd, weight_fork=1.3, weight_watch=1, weight_push=0.1)
+rdd = create_index(rdd, weight_fork=1, weight_watch=1.4, weight_push=0.1)
 
-rdd = apply_filter(rdd, granularity='week', min_score=1000)
+rdd = apply_filter(rdd, granularity='week', min_score=300)
 
 rdd.saveAsTextFile(OUTPUT_DIR)
