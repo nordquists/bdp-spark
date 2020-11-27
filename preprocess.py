@@ -2,6 +2,7 @@ from pyspark import SparkContext
 from pyspark.sql import HiveContext
 import datetime
 import pyspark.sql.functions as f
+import math
 
 # from preprocessing.preprocessor import adjust_granularity, create_index, apply_filter
 
@@ -12,11 +13,11 @@ def index_map(line):
     count = int(line[3])
 
     if type == 'ForkEvent':
-        count = 1.3 * count
+        count = 0.8 * count
     elif type == 'WatchEvent':
-        count = 1 * count
+        count = 2 * count
     elif type == 'PushEvent':
-        count = 0.9 * count
+        count = math.log10(count)
 
     return "{},{}".format(repo, week), count
 
@@ -70,7 +71,7 @@ rdd = rdd.map(lambda line: line.split(","))
 
 rdd = adjust_granularity(rdd, granularity='week')
 
-rdd = create_index(rdd, weight_fork=1, weight_watch=1.4, weight_push=0.1)
+rdd = create_index(rdd, weight_fork=0.5, weight_watch=2, weight_push=0.1)
 
 rdd = apply_filter(rdd, granularity='week', min_score=300)
 
