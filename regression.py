@@ -5,7 +5,7 @@ import pyspark.sql.functions as f
 
 
 TRAINING_CUT_OFF = 9
-INPUT_TABLE = "ts_monthly_preprocessed"
+INPUT_TABLE = "ts_weekly_preprocessed"
 OUTPUT_DIR = "hdfs://dumbo/user/srn334/final/regression{}/".format(str(TRAINING_CUT_OFF))
 
 sc = SparkContext.getOrCreate()
@@ -85,7 +85,7 @@ def do_regression(repos):
 ts = hive_context.table("srn334.{}".format(INPUT_TABLE))
 ts.registerTempTable('{}'.format(INPUT_TABLE))
 
-ts = hive_context.sql("SELECT * FROM {} WHERE month < {}".format(INPUT_TABLE, str(TRAINING_CUT_OFF)))
+ts = hive_context.sql("SELECT * FROM {} WHERE week < {}".format(INPUT_TABLE, str(TRAINING_CUT_OFF)))
 
 # # First we find all of the repositories that we will run a regression on.
 # print("LOADING REPOSITORIES: ------------------------------------")
@@ -105,7 +105,7 @@ ts = hive_context.sql("SELECT * FROM {} WHERE month < {}".format(INPUT_TABLE, st
 #
 # print(result.take(100))
 
-df = ts.groupBy("repo").agg(f.collect_list("month"), f.collect_list("score"))
+df = ts.groupBy("repo").agg(f.collect_list("week"), f.collect_list("score"))
 
 result = df.rdd.map(tuple).map(map_linear_regression)
 
