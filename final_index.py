@@ -30,6 +30,6 @@ ts.registerTempTable('{}'.format(INPUT_TABLE))
 ts = hive_context.sql("SELECT * FROM {}".format(INPUT_TABLE))
 
 
-result = ts.rdd.map(tuple).map(index_mapper)
+result = ts.rdd.top(100, key=lambda x: x[1]).map(tuple).map(index_mapper)
 
 result.saveAsTextFile(OUTPUT_DIR)
