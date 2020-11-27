@@ -105,9 +105,6 @@ ts = hive_context.sql("SELECT * FROM {} WHERE month < {}".format(INPUT_TABLE, st
 #
 # print(result.take(100))
 
-
-entries = ts.select("repo").distinct
-
 df = ts.groupBy("repo").agg(f.collect_list("month"), f.collect_list("score"))
 
 result = df.rdd.map(tuple).map(map_linear_regression)

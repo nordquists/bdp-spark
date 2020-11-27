@@ -66,7 +66,7 @@ rdd = rdd.map(lambda line: line.split(","))
 
 rdd = adjust_granularity(rdd, granularity='month')
 
-rdd = create_index(rdd, weight_fork=1.3, weight_watch=1, weight_push=0.9)
+rdd = create_index(rdd, weight_fork=1.3, weight_watch=1, weight_push=0.1)
 
 rdd = apply_filter(rdd, granularity='month', min_score=1000)
 
