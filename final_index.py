@@ -17,7 +17,8 @@ def index_mapper(line):
 
     index = (0.4 * integral + 0.6 * derivative)
     index *= entries / 52
-    index += derivative / integral
+    if integral:
+        index += derivative / integral
 
     return "{},{}".format(repo_name, index)
 
