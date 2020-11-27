@@ -15,15 +15,15 @@ hive_context = HiveContext(sc)
 sc.setLogLevel("WARN")
 
 # Register our time series data
-ts = hive_context.table("srn334.ts_weekly_preprocessed")
-ts.registerTempTable('ts_weekly_preprocessed')
+ts = hive_context.table("srn334.ts_day")
+ts.registerTempTable('ts_day')
 
-ts = hive_context.sql("SELECT * FROM ts_weekly_preprocessed where lower(repo) = 'jepsen-io/jepsen'") # facebook/react-native
+ts = hive_context.sql("SELECT * FROM ts_day where lower(repo) = 'jepsen-io/jepsen'") # facebook/react-native
 
-ts = ts.fillna({'score': 0, 'week': 0, 'repo': ''})
+ts = ts.fillna({'score': 0, 'day': 0, 'repo': ''})
 
 repo_name = ts.select('repo').collect()[0][0]
-days = ts.select('week').collect()
+days = ts.select('day').collect()
 missing_x = set(range(1, 260))
 
 for day in days:
@@ -31,7 +31,7 @@ for day in days:
         missing_x.remove(day[0])
 
 for day in missing_x:
-    new_row = hive_context.createDataFrame([(repo_name, day, 0)], ['repo', 'week', 'score'])
+    new_row = hive_context.createDataFrame([(repo_name, day, 0)], ['repo', 'day', 'score'])
     ts = ts.unionAll(new_row)
 
 # ts = exclude_outliers(np.array(ts.select('score').collect()).flatten(), ts)
@@ -39,7 +39,7 @@ for day in missing_x:
 train = get_train_split(ts)
 eval = get_eval_split(ts)
 
-x = np.array(train.select('week').collect()).flatten()
+x = np.array(train.select('day').collect()).flatten()
 y = np.array(train.select('score').collect()).flatten()
 #
 lr = LinearRegression()
@@ -50,7 +50,7 @@ lr.fit(x, y)
 # fit = SARIMAX(y,order=(7,1,7),freq='W',seasonal_order=(0,0,0,0),
 #                                  enforce_stationarity=False, enforce_invertibility=False,).fit()
 order = (5, 1, 1)
-model = ARIMA(y, order, freq='W')
+model = ARIMA(y, order, freq='D')
 fit = model.fit(transparams=True)
 
 # for p in range(6):
@@ -65,7 +65,7 @@ fit = model.fit(transparams=True)
 #                 pass
 
 
-x_hat = np.array(eval.select('week').collect()).flatten()
+x_hat = np.array(eval.select('day').collect()).flatten()
 y_hat = np.array(eval.select('score').collect()).flatten()
 
 
