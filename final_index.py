@@ -30,6 +30,8 @@ ts.registerTempTable('{}'.format(INPUT_TABLE))
 ts = hive_context.sql("SELECT * FROM {}".format(INPUT_TABLE))
 
 
-result = ts.rdd.map(tuple).map(index_mapper).sortBy(lambda a: a[1])
+result = ts.rdd.map(tuple).map(index_mapper)
+
+result = result.sortBy(lambda a: a[2])
 
 result.saveAsTextFile(OUTPUT_DIR)
