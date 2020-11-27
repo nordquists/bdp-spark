@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from statsmodels.tsa.arima_model import ARIMA
 
-matplotlib.use('tkagg')
+matplotlib.use('QT4Agg')
 
 sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
