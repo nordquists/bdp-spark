@@ -20,7 +20,7 @@ ts.registerTempTable('ts_weekly_preprocessed')
 
 ts = hive_context.sql("SELECT * FROM ts_weekly_preprocessed where lower(repo) = 'jepsen-io/jepsen'") # facebook/react-native
 
-ts = ts.fillna({'score': 0, 'day': 0, 'repo': ''})
+ts = ts.fillna({'score': 0, 'week': 0, 'repo': ''})
 
 repo_name = ts.select('repo').collect()[0][0]
 days = ts.select('week').collect()
@@ -39,7 +39,7 @@ for day in missing_x:
 train = get_train_split(ts)
 eval = get_eval_split(ts)
 
-x = np.array(train.select('day').collect()).flatten()
+x = np.array(train.select('week').collect()).flatten()
 y = np.array(train.select('score').collect()).flatten()
 #
 lr = LinearRegression()
