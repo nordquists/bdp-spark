@@ -4,7 +4,7 @@ import numpy as np
 import pyspark.sql.functions as f
 
 
-TRAINING_CUT_OFF = 9
+TRAINING_CUT_OFF = 41
 INPUT_TABLE = "ts_weekly_preprocessed"
 OUTPUT_DIR = "hdfs://dumbo/user/srn334/final/regression{}/".format(str(TRAINING_CUT_OFF))
 
