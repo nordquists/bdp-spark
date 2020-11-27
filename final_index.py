@@ -32,6 +32,8 @@ ts = hive_context.sql("SELECT * FROM {}".format(INPUT_TABLE))
 
 result = ts.rdd.map(tuple).map(index_mapper)
 
-result = result.sortBy(lambda a: a[2])
+result = result.toDF(['repo', 'index']).orderBy('index', ascending=False)
+
+result = result.rdd.map(tuple)
 
 result.saveAsTextFile(OUTPUT_DIR)
