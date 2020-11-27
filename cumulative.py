@@ -10,8 +10,8 @@ from pyspark.sql.window import Window
 import pyspark.sql.functions as f
 
 
-INPUT_DIR = "hdfs://dumbo/user/srn334/final/output/part-r-00000"
-OUTPUT_DIR = "hdfs://dumbo/user/srn334/final/preprocessed_weekly/"
+INPUT_DIR = "hdfs://dumbo/user/srn334/final/preprocessed_weekly"
+OUTPUT_DIR = "hdfs://dumbo/user/srn334/final/preprocessed_cumulative_weekly/"
 
 sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
