@@ -22,7 +22,7 @@ rdd = sc.textFile(INPUT_DIR)
 
 ts = rdd.map(lambda line: line.split(",")).toDF(["repo", "week", "score"])
 
-ts = ts.fillna({'score': 0, 'day': 0, 'repo': ''})
+ts = ts.fillna({'score': 0, 'week': 0, 'repo': ''})
 
 
 cum_sum = ts.withColumn('cumsum', f.sum(f.col("score")).over(Window.partitionBy('repo').orderBy(f.col("week")).rowsBetween(-sys.maxsize, 0)))
