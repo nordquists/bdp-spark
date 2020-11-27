@@ -20,7 +20,9 @@ def index_mapper(line):
     if integral:
         index += float(derivative) / float(integral)
 
-    return (repo_name, index)
+    linked = "=HYPERLINK(\"https://github.com/{}\", \"{}\")".format(repo_name, repo_name)
+
+    return (linked, index)
 
 
 
