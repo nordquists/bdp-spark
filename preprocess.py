@@ -58,7 +58,7 @@ def apply_filter(rdd, granularity='month', min_score=1000):
 
 
 INPUT_DIR = "hdfs://dumbo/user/srn334/final/output/part-r-00000"
-OUTPUT_DIR = "hdfs://dumbo/user/srn334/final/preprocessed/"
+OUTPUT_DIR = "hdfs://dumbo/user/srn334/final/preprocessed_weekly/"
 
 sc = SparkContext.getOrCreate()
 hive_context = HiveContext(sc)
