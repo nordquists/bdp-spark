@@ -15,10 +15,10 @@ sc.setLogLevel("OFF")
 def index_mapper(line):
     repo_name, slope, intercept, r2, entries, integral, derivative = line
 
-    index = (0.4 * integral + 0.6 * derivative)
-    index *= entries / 52
+    index = (0.4 * float(integral) + 0.6 * float(derivative))
+    index *= float(entries) / 52.0
     if integral:
-        index += derivative / integral
+        index += float(derivative) / float(integral)
 
     return (repo_name, index)
 
