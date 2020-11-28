@@ -6,7 +6,14 @@ from statsmodels.tsa.arima_model import ARIMA
 
 
 def arima(y):
-    order = (5, 1, 1)
-    model = ARIMA(y, order, freq='W')
-    fit = model.fit(transparams=True)
+    for p in range(6):
+        for d in range(2):
+            for q in range(4):
+                try:
+                    fit=ARIMA(y,(p,d,q), freq="W").fit(transparams=True)
+
+                    x1= p,d,q
+                except:
+                    pass
+
     return fit
