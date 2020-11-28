@@ -51,7 +51,7 @@ plt.figure(figsize=(12, 9))
 ts = hive_context.table("srn334.{}".format(TABLE_NAME))
 ts.registerTempTable('{}'.format(TABLE_NAME))
 
-ts = hive_context.sql("SELECT * FROM {} where lower(repo) = '{}'".format(TABLE_NAME, REPO_NAME))
+ts = hive_context.sql("SELECT * FROM {} where repo = '{}'".format(TABLE_NAME, REPO_NAME))
 
 ts = ts.orderBy('week')
 
@@ -81,7 +81,7 @@ for result in results:
 
 print(TABLEAU_20[4])
 plt.scatter(x, y, color=TABLEAU_20[4])
-plt.scatter(x_hat, y_hat, color=TABLEAU_20[5])
+plt.scatter(x_hat, y_hat, color=TABLEAU_20[8])
 
 # -----------------------------------------------------------------
 
@@ -97,10 +97,10 @@ ax.get_xaxis().tick_bottom()
 ax.get_yaxis().tick_left()
 
 y_max = int(max(max(y), max(y_hat)))
-
+y_min = int(min(min(y), min(y_hat)))
 increment_size = y_max // 5
 
-plt.yticks(range(0, y_max, increment_size), [str(x) for x in range(0, y_max, increment_size)], fontsize=14)
+plt.yticks(range(y_min, y_max+2000, increment_size), [str(x) for x in range(0, y_max, increment_size)], fontsize=14)
 plt.xticks(fontsize=14)
 
 for y in range(increment_size, y_max, increment_size):
