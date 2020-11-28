@@ -27,6 +27,7 @@ def run_algorithms(algorithms, x, y, x_hat):
             fit = arima(y)
             pred = fit.predict(1, x_hat[-1], typ='levels')
             y_1, y_hat = pred[:x[-1]], pred[x_hat[0]:]
+            print(len(pred))
             results.append([algorithm, (np.append(x, x_hat, 0), pred)])
         elif algorithm == 1:
             y_1 = movingaverage(y, 3)
