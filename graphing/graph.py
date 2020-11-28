@@ -118,7 +118,7 @@ plt.title("Activity of {} over time (2020)", fontsize=17)
 plt.xlabel('Weeks in 2020')
 plt.ylabel('Activity Index')
 
-plt.text("Note: Models tested were only trained on the first 40 weeks (points in blue).", fontsize=10)
+# plt.text("Note: Models tested were only trained on the first 40 weeks (points in blue).", fontsize=10)
 plt.legend()
 
 plt.show()
