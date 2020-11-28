@@ -104,3 +104,4 @@ plt.legend()
 
 plt.show()
 
+plt.savefig("figure1.png", bbox_inches="tight")
