@@ -31,7 +31,7 @@ TABLEAU_20 = [(31, 119, 180), (174, 199, 232), (255, 127, 14), (255, 187, 120),
 
 for i in range(len(TABLEAU_20)):
     r, b, g = TABLEAU_20[i]
-    TABLEAU_20[i] = (r/256, b/256, g/256)
+    TABLEAU_20[i] = (float(r)/256.0, float(b)/256.0, float(g)/256.0)
 
 # -----------------------------------------------------------------
 
@@ -76,8 +76,6 @@ for result in results:
     algorithm_name = ALGORITHMS_REVERSED[algorithm_id]
 
     x_plot, y_plot = result[1]
-
-    print(list(x_plot), list(y_plot))
 
     plt.plot(list(x_plot), list(y_plot), label=algorithm_name, color=algorithm_color)
 
