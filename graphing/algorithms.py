@@ -8,14 +8,14 @@ import numpy as np
 
 # Constants
 ALGORITHMS = {
-    "SMA3": 0,
-    "ARIMA": 1,
+    "SMA3": 1,
+    "ARIMA": 0,
     "LR": 2
 }
 
 ALGORITHMS_REVERSED = {
-    0: "SMA3",
-    1: "ARIMA",
+    1: "SMA3",
+    0: "ARIMA",
     2: "LR"
 }
 
