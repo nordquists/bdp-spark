@@ -79,7 +79,6 @@ for result in results:
 
     plt.plot(list(x_plot), list(y_plot), label=algorithm_name, color=algorithm_color)
 
-print(TABLEAU_20[4])
 plt.scatter(x, y, color=TABLEAU_20[4])
 plt.scatter(x_hat, y_hat, color=TABLEAU_20[8])
 
@@ -98,9 +97,11 @@ ax.get_yaxis().tick_left()
 
 y_max = int(max(max(y), max(y_hat)))
 y_min = int(min(min(y), min(y_hat)))
-increment_size = y_max // 5
+increment_size = y_max // 10
 
-plt.yticks(range(y_min, y_max+2000, increment_size), [str(x) for x in range(0, y_max, increment_size)], fontsize=14)
+print(y_min, y_max)
+
+plt.yticks(range(y_min - 2000, y_max+2000, increment_size), [str(x) for x in range(0, y_max, increment_size)], fontsize=14)
 plt.xticks(fontsize=14)
 
 for y in range(increment_size, y_max, increment_size):
