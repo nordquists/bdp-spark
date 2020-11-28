@@ -40,8 +40,8 @@ REPO_NAME = "facebook/react-native"
 TABLE_NAME = "ts_weekly_cumulative_preprocessed"
 TO_PLOT = [
     # ALGORITHMS["SMA3"],
-    # ALGORITHMS["ARIMA"],
-    # ALGORITHMS["LR"]
+    ALGORITHMS["ARIMA"],
+    ALGORITHMS["LR"]
 ]
 
 plt.figure(figsize=(12, 9))
@@ -81,8 +81,8 @@ for result in results:
 
     plt.plot(list(x_plot), list(y_plot), label=algorithm_name, color=algorithm_color)
 
-plt.scatter(x, y, color=(219/256, 219/256, 141/256))
-plt.scatter(x_hat, y_hat, color=(219/256, 219/256, 141/256))
+plt.scatter(x, y, color=TABLEAU_20[-1])
+plt.scatter(x_hat, y_hat, color=TABLEAU_20[-2])
 
 # -----------------------------------------------------------------
 
