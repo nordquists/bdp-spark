@@ -43,6 +43,8 @@ TO_PLOT = [
     # ALGORITHMS["LR"]
 ]
 
+plt.figure(figsize=(12, 9))
+
 # -----------------------------------------------------------------
 
 ts = hive_context.table("srn334.{}".format(TABLE_NAME))
@@ -82,8 +84,6 @@ plt.scatter(x_hat, y_hat, color=[(219/256, 219/256, 141/256)])
 # -----------------------------------------------------------------
 
 # Customizing plot, following design from from http://www.randalolson.com/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with-matplotlib/
-plt.figure(figsize=(12, 9))
-
 # Designing figures
 ax = plt.subplot(111)
 ax.spines["top"].set_visible(False)
