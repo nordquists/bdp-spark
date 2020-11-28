@@ -13,6 +13,7 @@ from pyspark import SparkContext
 from pyspark.sql import HiveContext
 import pyspark.sql.functions as f
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
 import numpy as np
 import matplotlib
 
@@ -97,7 +98,7 @@ ax.spines["left"].set_visible(False)
 ax.get_xaxis().tick_bottom()
 ax.get_yaxis().tick_left()
 
-ax.ticklabel_format(axis='y', style='sci')
+ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 
 y_max = int(max(max(y), max(y_hat)))
 y_min = int(min(min(y), min(y_hat)))
@@ -114,7 +115,7 @@ for y in range(increment_size, y_max, increment_size):
 plt.tick_params(axis="both", which="both", bottom="off", top="off",
                 labelbottom="on", left="off", right="off", labelleft="on")
 
-plt.title("Activity of {} over time (2020)", fontsize=17)
+plt.title("Activity of {} over time (2020)".format(REPO_NAME), fontsize=17)
 plt.xlabel('Weeks in 2020')
 plt.ylabel('Activity Index')
 
