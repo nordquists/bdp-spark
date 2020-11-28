@@ -78,8 +78,8 @@ for result in results:
 
     plt.plot(list(x_plot), list(y_plot), label=algorithm_name, color=algorithm_color)
 
-plt.scatter(x, y, color=[(219/256, 219/256, 141/256)])
-plt.scatter(x_hat, y_hat, color=[(219/256, 219/256, 141/256)])
+plt.scatter(x, y, color=(219/256, 219/256, 141/256))
+plt.scatter(x_hat, y_hat, color=(219/256, 219/256, 141/256))
 
 # -----------------------------------------------------------------
 
@@ -94,10 +94,14 @@ ax.spines["left"].set_visible(False)
 ax.get_xaxis().tick_bottom()
 ax.get_yaxis().tick_left()
 
-plt.yticks(range(0, 91, 10), [str(x) for x in range(0, 91, 10)], fontsize=14)
+y_max = max(max(y), max(y_hat))
+
+increment_size = y_max // 5
+
+plt.yticks(range(0, y_max, increment_size), [str(x) for x in range(0, y_max, increment_size)], fontsize=14)
 plt.xticks(fontsize=14)
 
-for y in range(10, 91, 10):
+for y in range(increment_size, y_max, increment_size):
     plt.plot(range(0, 52), [y] * len(range(0, 52)), "--", lw=0.5, color="black", alpha=0.3)
 
 plt.tick_params(axis="both", which="both", bottom="off", top="off",
