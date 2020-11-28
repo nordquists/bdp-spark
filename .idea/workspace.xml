@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e257cee-79d8-4fe2-bb7f-452671f273d7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/index_creation/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphing/algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/graphing/algorithms.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,14 +36,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="39" />
-          <entry key="py" value="18046" />
+          <entry key="py" value="18050" />
           <entry key="txt" value="700" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="739" />
-          <entry key="Python" value="18046" />
+          <entry key="Python" value="18050" />
         </counts>
       </usages-collector>
     </session>
@@ -114,10 +115,10 @@
         <entry file="file://$PROJECT_DIR$/graphing/algorithms.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="570">
-              <caret line="38" column="95" selection-start-line="38" selection-start-column="95" selection-end-line="38" selection-end-column="95" />
+              <caret line="38" column="96" selection-start-line="38" selection-start-column="96" selection-end-line="38" selection-end-column="96" />
               <folding>
                 <element signature="e#118#164#0" expanded="true" />
-                <marker date="1606599713996" expanded="true" signature="427:1127" ph="..." />
+                <marker date="1606599830665" expanded="true" signature="427:1134" ph="..." />
               </folding>
             </state>
           </provider>
@@ -171,8 +172,8 @@
       <find>lin</find>
       <find>index</find>
       <find>day</find>
-      <find>font</find>
       <find>order</find>
+      <find>font</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -247,26 +248,6 @@
               <item name="pyspark" type="b2602c69:ProjectViewProjectNode" />
               <item name="pyspark" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="pyspark" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyspark" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pyspark" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyspark" type="462c0819:PsiDirectoryNode" />
-              <item name="graphing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pyspark" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyspark" type="462c0819:PsiDirectoryNode" />
-              <item name="pipeline" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pyspark" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyspark" type="462c0819:PsiDirectoryNode" />
-              <item name="regression" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -318,7 +299,7 @@
     <frame x="0" y="23" width="2560" height="1417" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25178713" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25178713" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -621,13 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphing/linear_regression.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pipeline/split.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -686,16 +660,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphing/graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="57" selection-start-line="57" selection-end-line="58" />
-          <folding>
-            <element signature="e#415#494#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/final_index.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -707,13 +671,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/graphing/linear_regression.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphing/graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="57" selection-start-line="57" selection-end-line="58" />
+          <folding>
+            <element signature="e#415#494#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/graphing/algorithms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
-          <caret line="38" column="95" selection-start-line="38" selection-start-column="95" selection-end-line="38" selection-end-column="95" />
+          <caret line="38" column="96" selection-start-line="38" selection-start-column="96" selection-end-line="38" selection-end-column="96" />
           <folding>
             <element signature="e#118#164#0" expanded="true" />
-            <marker date="1606599713996" expanded="true" signature="427:1127" ph="..." />
+            <marker date="1606599830665" expanded="true" signature="427:1134" ph="..." />
           </folding>
         </state>
       </provider>
