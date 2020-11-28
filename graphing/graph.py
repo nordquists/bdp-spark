@@ -36,7 +36,7 @@ TABLE_NAME = "ts_weekly_cumulative_preprocessed"
 TO_PLOT = [
     # ALGORITHMS["SMA3"],
     # ALGORITHMS["ARIMA"],
-    ALGORITHMS["LR"]
+    # ALGORITHMS["LR"]
 ]
 
 # -----------------------------------------------------------------
