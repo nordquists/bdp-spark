@@ -81,8 +81,9 @@ for result in results:
 
     plt.plot(list(x_plot), list(y_plot), label=algorithm_name, color=algorithm_color)
 
-plt.scatter(x, y, color=[TABLEAU_20[4]])
-plt.scatter(x_hat, y_hat, color=[TABLEAU_20[5]])
+print(TABLEAU_20[4])
+plt.scatter(x, y, color=TABLEAU_20[4])
+plt.scatter(x_hat, y_hat, color=TABLEAU_20[5])
 
 # -----------------------------------------------------------------
 
