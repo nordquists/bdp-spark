@@ -68,9 +68,9 @@ for result in results:
 
     x_plot, y_plot = result[1]
 
-    print(x_plot, y_plot)
+    print(list(x_plot), list(y_plot))
 
-    plt.plot(x_plot, y_plot, label=algorithm_name, color=algorithm_color)
+    plt.plot(list(x_plot), list(y_plot), label=algorithm_name, color=algorithm_color)
 
 plt.scatter(x, y, color=TABLEAU_20[-5])
 plt.scatter(x_hat, y_hat, color=TABLEAU_20[-1])
