@@ -16,7 +16,7 @@ ALGORITHMS = {
 ALGORITHMS_REVERSED = {
     0: "SMA3",
     1: "ARIMA",
-    3: "LR"
+    2: "LR"
 }
 
 
