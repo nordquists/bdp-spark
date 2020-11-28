@@ -24,8 +24,9 @@ def run_algorithms(algorithms, x, y, x_hat):
     for algorithm in algorithms:
         if algorithm == 0:
             fit = arima(y)
+            print(x_hat[-1])
             pred = fit.predict(0, x_hat[-1], typ='levels')
-            y_1, y_hat = pred[:x[-1]],pred[x_hat[0]:]
+            y_1, y_hat = pred[:x[-1]], pred[x_hat[0]:]
             results.append([algorithm, (x + x_hat, y_1 + y_hat)])
         elif algorithm == 1:
             y_1 = movingaverage(y, 3)
