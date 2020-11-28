@@ -94,7 +94,7 @@ ax.spines["left"].set_visible(False)
 ax.get_xaxis().tick_bottom()
 ax.get_yaxis().tick_left()
 
-y_max = max(max(y), max(y_hat))
+y_max = int(max(max(y), max(y_hat)))
 
 increment_size = y_max // 5
 
