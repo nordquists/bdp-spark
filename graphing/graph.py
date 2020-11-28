@@ -63,7 +63,7 @@ results = run_algorithms(TO_PLOT, x, y, x_hat)
 
 for result in results:
     algorithm_id = result[0]
-    algorithm_color = TABLEAU_20[algorithm_id]
+    algorithm_color = [TABLEAU_20[algorithm_id]]
     algorithm_name = ALGORITHMS_REVERSED[algorithm_id]
 
     x_plot, y_plot = result[1]
@@ -72,8 +72,8 @@ for result in results:
 
     plt.plot(list(x_plot), list(y_plot), label=algorithm_name, color=algorithm_color)
 
-plt.scatter(x, y, color=TABLEAU_20[-5])
-plt.scatter(x_hat, y_hat, color=TABLEAU_20[-1])
+plt.scatter(x, y, color=[TABLEAU_20[-5]])
+plt.scatter(x_hat, y_hat, color=[TABLEAU_20[-1]])
 
 # -----------------------------------------------------------------
 
