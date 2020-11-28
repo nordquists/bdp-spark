@@ -97,6 +97,8 @@ ax.spines["left"].set_visible(False)
 ax.get_xaxis().tick_bottom()
 ax.get_yaxis().tick_left()
 
+ax.ticklabel_format(axis='both', style='sci')
+
 y_max = int(max(max(y), max(y_hat)))
 y_min = int(min(min(y), min(y_hat)))
 increment_size = y_max // 10
@@ -112,7 +114,7 @@ for y in range(increment_size, y_max, increment_size):
 plt.tick_params(axis="both", which="both", bottom="off", top="off",
                 labelbottom="on", left="off", right="off", labelleft="on")
 
-plt.title("Activity of {} over time (2020)", fontsize=17, ha="center")
+plt.title("Activity of {} over time (2020)", fontsize=17)
 plt.xlabel('Weeks in 2020')
 plt.ylabel('Activity Index')
 
