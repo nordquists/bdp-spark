@@ -46,6 +46,8 @@ ts.registerTempTable('{}'.format(TABLE_NAME))
 
 ts = hive_context.sql("SELECT * FROM {} where lower(repo) = '{}'".format(TABLE_NAME, REPO_NAME))
 
+ts.orderBy('week')
+
 train = get_train_split(ts)
 eval = get_eval_split(ts)
 
