@@ -97,7 +97,7 @@ ax.spines["left"].set_visible(False)
 ax.get_xaxis().tick_bottom()
 ax.get_yaxis().tick_left()
 
-ax.ticklabel_format(axis='both', style='sci')
+ax.ticklabel_format(axis='y', style='sci')
 
 y_max = int(max(max(y), max(y_hat)))
 y_min = int(min(min(y), min(y_hat)))
