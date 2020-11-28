@@ -34,7 +34,7 @@ def run_algorithms(algorithms, x, y, x_hat):
         elif algorithm == 2:
             lr = LinearRegression()
             lr.fit(x, y)
-            y_1 = lr.predict(x_hat)
+            y_1 = lr.predict(x)
             y_hat = lr.predict(x_hat)
             results.append([algorithm, (np.append(x, x_hat, 0), np.append(y_1, y_hat, 0))])
 
