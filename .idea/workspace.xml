@@ -101,8 +101,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/graphing/graph.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="571">
-              <caret line="70" column="36" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
+            <state relative-caret-position="96">
+              <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
               <folding>
                 <element signature="e#415#494#0" expanded="true" />
               </folding>
@@ -113,8 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/graphing/algorithms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="49" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="49" />
+            <state relative-caret-position="120">
+              <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
               <folding>
                 <element signature="e#118#164#0" expanded="true" />
                 <marker date="1606600736241" expanded="true" signature="427:1112" ph="..." />
@@ -171,8 +171,8 @@
       <find>lin</find>
       <find>index</find>
       <find>order</find>
-      <find>font</find>
       <find>day</find>
+      <find>font</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -657,17 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphing/algorithms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="49" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="49" />
-          <folding>
-            <element signature="e#118#164#0" expanded="true" />
-            <marker date="1606600736241" expanded="true" signature="427:1112" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="344">
@@ -688,10 +677,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/graphing/algorithms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding>
+            <element signature="e#118#164#0" expanded="true" />
+            <marker date="1606600736241" expanded="true" signature="427:1112" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/graphing/graph.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="70" column="36" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
+        <state relative-caret-position="96">
+          <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
           <folding>
             <element signature="e#415#494#0" expanded="true" />
           </folding>
