@@ -112,11 +112,11 @@ for y in range(increment_size, y_max, increment_size):
 plt.tick_params(axis="both", which="both", bottom="off", top="off",
                 labelbottom="on", left="off", right="off", labelleft="on")
 
-plt.text(1995, 93, "Activity of {} over time (2020)", fontsize=17, ha="center")
+plt.title("Activity of {} over time (2020)", fontsize=17, ha="center")
 plt.xlabel('Weeks in 2020')
 plt.ylabel('Activity Index')
 
-plt.text(1966, -8, "Note: Models tested were only trained on the first 40 weeks (points in blue).", fontsize=10)
+plt.text("Note: Models tested were only trained on the first 40 weeks (points in blue).", fontsize=10)
 plt.legend()
 
 plt.show()
