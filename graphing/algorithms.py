@@ -1,9 +1,9 @@
 """
     This file is called by the graphing file to run the algorithms we ask to graph. Nothing new is done here.
 """
-from graphing.linear_regression import LinearRegression
-from graphing.sma import movingaverage
-from graphing.arima import arima
+from linear_regression import LinearRegression
+from sma import movingaverage
+from arima import arima
 
 # Constants
 ALGORITHMS = {

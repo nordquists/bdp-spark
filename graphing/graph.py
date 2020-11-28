@@ -6,8 +6,8 @@
     So there is no definite way of running this. It is not vital to the final analytic though, it just is here to
     make the graphs for the presentation and paper.
 """
-from graphing.algorithms import run_algorithms, ALGORITHMS, ALGORITHMS_REVERSED
-from graphing.split import get_eval_split, get_train_split
+from algorithms import run_algorithms, ALGORITHMS, ALGORITHMS_REVERSED
+from split import get_eval_split, get_train_split
 from pyspark import SparkContext
 from pyspark.sql import HiveContext
 import pyspark.sql.functions as f
