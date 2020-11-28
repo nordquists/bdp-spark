@@ -77,6 +77,8 @@ for result in results:
 
     x_plot, y_plot = result[1]
 
+    print(x_plot, y_plot)
+
     plt.plot(list(x_plot), list(y_plot), label=algorithm_name, color=algorithm_color)
 
 plt.scatter(x, y, color=TABLEAU_20[4])
