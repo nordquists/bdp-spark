@@ -58,7 +58,7 @@ print(ts.show(30))
 
 ts = ts.orderBy('week')
 
-# ts = exclude_outliers(np.array(ts.select('score').collect()).flatten(), ts)
+ts = exclude_outliers(np.array(ts.select('cumsum').collect()).flatten(), ts)
 
 train = get_train_split(ts)
 eval = get_eval_split(ts)
