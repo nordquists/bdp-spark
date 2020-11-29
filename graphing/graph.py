@@ -100,7 +100,7 @@ ax.spines["left"].set_visible(False)
 ax.get_xaxis().tick_bottom()
 ax.get_yaxis().tick_left()
 
-if y_hat:
+if len(y_hat) != 0:
     y_max = int(max(max(y), max(y_hat)))
     y_min = int(min(min(y), min(y_hat)))
     increment_size = y_max // 10
