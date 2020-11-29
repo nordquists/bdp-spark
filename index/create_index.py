@@ -93,6 +93,9 @@ def index_mapper(line):
 
     linked = "=HYPERLINK(\"https://github.com/{}\"; \"{}\")".format(repo_name, repo_name) # This is for google sheets
 
+    if not index:
+        index = 0
+
     return (linked, index)
 
 # ----------------------------------------------------------------------------------------------------------------
