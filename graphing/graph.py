@@ -37,7 +37,7 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "CSSEGISandData/COVID-19"
+REPO_NAME = "facebook/react-native"
 TABLE_NAME = "weekly_cumulative"
 TYPE = ""
 TO_PLOT = [
@@ -125,7 +125,7 @@ for y in range(increment_size, y_max, increment_size):
 # ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 # ax.set_yscale('log')
 
-plt.ylim(y_min//2, y_max*2)
+plt.ylim(y_min//2, y_max*1.1)
 
 
 plt.title("{} Activity of {} over time (2020)".format('Cumulative' if type== 'cumsum' else '',REPO_NAME), fontsize=17)
