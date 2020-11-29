@@ -91,7 +91,7 @@ def index_mapper(line):
     if integral:
         index += float(derivative) / float(integral)
 
-    linked = "=HYPERLINK(\"https://github.com/{}\"; \"{}\")".format(repo_name, repo_name) # This is for google sheets
+    linked = "=HYPERLINK(\"https://github.com/{}\", \"{}\")".format(repo_name, repo_name) # This is for google sheets
 
     return (linked, index)
 
