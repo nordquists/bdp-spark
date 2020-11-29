@@ -105,11 +105,11 @@ ax.get_yaxis().tick_left()
 if len(y_hat) != 0:
     y_max = int(max(max(y), max(y_hat)))
     y_min = int(min(min(y), min(y_hat)))
-    increment_size = y_max // 10
+    increment_size = int(y_max // 10)
 else:
-    y_max = max(y)
-    y_min = min(y)
-    increment_size = y_max // 10
+    y_max = int(max(y))
+    y_min = int(min(y))
+    increment_size = int(y_max // 10)
 
 print(y_min, y_max)
 
