@@ -111,16 +111,14 @@ result = df.rdd.map(tuple).map(map_linear_regression_derivative)
 # Now we use those results to calculate the index
 result = result.map(index_mapper)
 
-print(result.take(100))
-
 # Finally we take the steps to output our index in descending order
-result = result.toDF(['repo', 'index'])
-# result = result.orderBy('index', ascending=False)
+dataframe = result.toDF(['repo', 'index'])
+dataframe = dataframe.orderBy('index', ascending=False)
 
-print(result.show(100))
+print(dataframe.show(100))
 
-result = result.rdd.map(tuple).map(lambda (repo_name, index): "{},{}".format(repo_name, index))
+dataframe = dataframe.rdd.map(tuple).map(lambda (repo_name, index): "{},{}".format(repo_name, index))
 
 # ----------------------------------------------------------------------------------------------------------------
 
-result.saveAsTextFile(OUTPUT_DIR)
+dataframe.saveAsTextFile(OUTPUT_DIR)
