@@ -114,6 +114,8 @@ result = result.map(index_mapper)
 # Finally we take the steps to output our index in descending order
 result = result.toDF(['repo', 'index']).orderBy('index', ascending=False)
 
+result.show(100)
+
 result = result.rdd.map(tuple).map(lambda (repo_name, index): "{},{}".format(repo_name, index))
 
 # ----------------------------------------------------------------------------------------------------------------
