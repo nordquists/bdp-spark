@@ -121,10 +121,10 @@ plt.xticks(fontsize=14)
 # plt.tick_params(axis="both", which="both", bottom="off", top="off",
 #                 labelbottom="on", left="off", right="off", labelleft="on")
 
-ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
+# ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 # ax.set_yscale('log')
 
-plt.ylim(y_min, y_max )
+plt.ylim(y_min*2, y_max*2)
 
 
 plt.title("Activity of {} over time (2020)".format(REPO_NAME), fontsize=17)
