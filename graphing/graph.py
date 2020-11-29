@@ -54,6 +54,8 @@ ts.registerTempTable('{}'.format(TABLE_NAME))
 
 ts = hive_context.sql("SELECT * FROM {} where repo = '{}'".format(TABLE_NAME, REPO_NAME))
 
+print(ts.show(30))
+
 ts = ts.orderBy('week')
 
 ts = exclude_outliers(np.array(ts.select('score').collect()).flatten(), ts)
