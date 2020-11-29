@@ -28,7 +28,9 @@ def index_map(line):
     elif type == 'WatchEvent':
         count = 2 * count
     elif type == 'PushEvent':
-        count = math.log10(count + 1)
+        count = 0.00001*count
+    else:
+        count = 0
 
     return "{},{}".format(repo, week), count
 
