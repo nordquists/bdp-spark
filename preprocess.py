@@ -71,7 +71,7 @@ rdd = rdd.map(lambda line: line.split(","))
 
 rdd = adjust_granularity(rdd, granularity='week')
 
-rdd = create_index(rdd, weight_fork=0.5, weight_watch=2, weight_push=0.1)
+# rdd = create_index(rdd, weight_fork=0.5, weight_watch=2, weight_push=0.1)
 
 # rdd = apply_filter(rdd, granularity='week', min_score=300)
 
