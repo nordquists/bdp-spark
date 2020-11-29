@@ -37,8 +37,8 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "cyrildiagne/ar-cutpaste"
-TABLE_NAME = "ts_weekly_cumulative_preprocessed"
+REPO_NAME = "CSSEGISandData/COVID-19"
+TABLE_NAME = "weekly_cumulative"
 TO_PLOT = [
     # ALGORITHMS["SMA3"],
     # ALGORITHMS["ARIMA"],
