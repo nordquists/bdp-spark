@@ -84,6 +84,7 @@ def map_linear_regression_derivative(line):
 
 
 def index_mapper(line):
+    print(line)
     repo_name, slope, intercept, r2, entries, integral, derivative = line
 
     index = (0.4 * float(integral) + 0.6 * float(derivative))
