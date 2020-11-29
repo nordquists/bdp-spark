@@ -37,7 +37,7 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "CCChieh/IBMYes"
+REPO_NAME = "CSSEGISandData/COVID-19"
 TABLE_NAME = "ts_weekly_cumulative_preprocessed"
 TO_PLOT = [
     # ALGORITHMS["SMA3"],
@@ -84,8 +84,8 @@ for result in results:
 
     plt.plot(list(x_plot), list(y_plot), label=algorithm_name, color=algorithm_color)
 
+plt.fill_between(x, 0, y, color=TABLEAU_20[5])
 plt.scatter(x, y, color=TABLEAU_20[4])
-plt.fill(x, y, color=TABLEAU_20[5])
 plt.scatter(x_hat, y_hat, color=TABLEAU_20[8])
 
 # -----------------------------------------------------------------
