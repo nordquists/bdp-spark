@@ -113,7 +113,7 @@ result = result.map(index_mapper)
 
 # Finally we take the steps to output our index in descending order
 dataframe = result.toDF(['repo', 'index'])
-dataframe = dataframe.sort_values('index')
+dataframe = dataframe.sort('index')
 
 print(dataframe.show(100))
 
