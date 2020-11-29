@@ -124,7 +124,7 @@ plt.xticks(fontsize=14)
 ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 # ax.set_yscale('log')
 
-# plt.ylim(y_min * 5, y_max * 5)
+plt.ylim(y_min, y_max )
 
 
 plt.title("Activity of {} over time (2020)".format(REPO_NAME), fontsize=17)
