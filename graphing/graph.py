@@ -106,7 +106,7 @@ increment_size = y_max // 10
 
 print(y_min, y_max)
 
-plt.yticks(range(y_min - 2000, y_max+2000, increment_size), [str(x) for x in range(y_min - 2000, y_max+2000, increment_size)], fontsize=14)
+# plt.yticks(range(y_min - 2000, y_max+2000, increment_size), [str(x) for x in range(y_min - 2000, y_max+2000, increment_size)], fontsize=14)
 plt.xticks(fontsize=14)
 
 for y in range(increment_size, y_max, increment_size):
