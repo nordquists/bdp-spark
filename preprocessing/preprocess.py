@@ -28,7 +28,7 @@ def index_map(line):
     elif type == 'WatchEvent':
         count = 2 * count
     elif type == 'PushEvent':
-        count = 0.00001*count
+        count = math.log10(count)
     else:
         count = 0
 
