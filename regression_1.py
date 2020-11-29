@@ -76,9 +76,6 @@ def map_linear_regression(line):
         dydx = slope
 
     return "{},{},{},{},{},{},{}".format(repo_name, slope, intercept, r2, len(x), cumsum[-1], dydx)
-    # repo_ts.show(10)
-    #
-    # return "{},1".format(repo_name)
 
 def do_regression(repos):
     print("STARTING REGRESSION MAP: --------------------------------")
