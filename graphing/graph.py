@@ -37,7 +37,7 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "kelseyhightower/nocode"
+REPO_NAME = "CCChieh/IBMYes"
 TABLE_NAME = "ts_weekly_cumulative_preprocessed"
 TO_PLOT = [
     # ALGORITHMS["SMA3"],
@@ -85,6 +85,7 @@ for result in results:
     plt.plot(list(x_plot), list(y_plot), label=algorithm_name, color=algorithm_color)
 
 plt.scatter(x, y, color=TABLEAU_20[4])
+plt.fill(x, y, color=TABLEAU_20[5])
 plt.scatter(x_hat, y_hat, color=TABLEAU_20[8])
 
 # -----------------------------------------------------------------
@@ -121,7 +122,7 @@ plt.xticks(fontsize=14)
 #                 labelbottom="on", left="off", right="off", labelleft="on")
 
 ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
-ax.set_yscale('log')
+# ax.set_yscale('log')
 
 plt.title("Activity of {} over time (2020)".format(REPO_NAME), fontsize=17)
 plt.xlabel('Weeks in 2020', fontsize=16)
@@ -132,4 +133,4 @@ plt.legend()
 
 plt.show()
 
-plt.savefig("./graphs/figure1.png", bbox_inches="tight", dpi=1200)
+plt.savefig("graphs/figure1.png", bbox_inches="tight", dpi=1200)
