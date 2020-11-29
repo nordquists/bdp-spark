@@ -1,4 +1,4 @@
-from linear_regression import LinearRegression
+from linear import LinearRegression
 from pyspark import SparkContext
 from pyspark.sql import HiveContext
 import numpy as np
