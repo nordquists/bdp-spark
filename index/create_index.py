@@ -62,7 +62,7 @@ def map_linear_regression_derivative(line):
     # repo_ts.registerTempTable('{}'.format(INPUT_TABLE))
     #
     # repo_ts = hive_context.sql("SELECT * FROM ts_monthly_preprocessed where repo = '" +  repo_name + "'")
-    repo_name, x, cumsum = line
+    repo_name, x, y, cumsum = line
 
     x = np.array(x)
     y = np.array(cumsum)
@@ -92,9 +92,6 @@ def index_mapper(line):
         index += float(derivative) / float(integral)
 
     linked = "=HYPERLINK(\"https://github.com/{}\"; \"{}\")".format(repo_name, repo_name) # This is for google sheets
-
-    if not index:
-        index = 0
 
     return (linked, index)
 
