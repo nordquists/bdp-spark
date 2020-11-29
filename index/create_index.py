@@ -115,8 +115,6 @@ result = result.map(index_mapper)
 dataframe = result.toDF(['repo', 'index'])
 dataframe = dataframe.orderBy('index', ascending=False)
 
-print(dataframe.show(100))
-
 dataframe = dataframe.rdd.map(tuple).map(lambda (repo_name, index): "{},{}".format(repo_name, index))
 
 # ----------------------------------------------------------------------------------------------------------------
