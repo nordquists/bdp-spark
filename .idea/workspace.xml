@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e257cee-79d8-4fe2-bb7f-452671f273d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/final_index.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index/create_index.py" beforeDir="false" afterPath="$PROJECT_DIR$/index/create_index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing/preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/other/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/evaluation.py" beforeDir="false" afterPath="$PROJECT_DIR$/other/evaluation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/features.py" beforeDir="false" afterPath="$PROJECT_DIR$/other/features.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/linear_regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/other/linear_regression.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/split.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/other/sql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocessing/preprocessor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/regression.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/regression/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/regression/linear.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/regression/runner.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/regression_1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/outliers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obstacles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obstacles.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,12 +24,12 @@
           <entry key="folder" value="1" />
           <entry key="model" value="1" />
           <entry key="py" value="118" />
-          <entry key="txt" value="2" />
+          <entry key="txt" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="PLAIN_TEXT" value="5" />
           <entry key="Python" value="118" />
         </counts>
       </usages-collector>
@@ -56,12 +37,12 @@
         <counts>
           <entry key="dummy" value="45" />
           <entry key="py" value="19839" />
-          <entry key="txt" value="700" />
+          <entry key="txt" value="701" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="745" />
+          <entry key="PLAIN_TEXT" value="746" />
           <entry key="Python" value="19839" />
         </counts>
       </usages-collector>
@@ -93,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/preprocessing/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+            <state relative-caret-position="795">
+              <caret line="53" column="17" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="17" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -105,8 +86,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cumulative.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="25" selection-start-line="8" selection-end-line="9" />
+            <state relative-caret-position="510">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+              <folding>
+                <element signature="e#42#52#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="733">
-              <caret line="73" column="30" lean-forward="true" selection-start-line="64" selection-end-line="73" selection-end-column="30" />
+            <state relative-caret-position="510">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -126,7 +110,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index/create_index.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
+            <state relative-caret-position="1455">
               <caret line="97" column="9" lean-forward="true" selection-start-line="97" selection-end-line="98" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
@@ -211,7 +195,6 @@
         <option value="$PROJECT_DIR$/baselines/last_value.py" />
         <option value="$PROJECT_DIR$/baselines/average_value.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/obstacles.txt" />
         <option value="$PROJECT_DIR$/utils/outliers.py" />
         <option value="$PROJECT_DIR$/other/week_reducer.py" />
         <option value="$PROJECT_DIR$/pipeline/split.py" />
@@ -238,6 +221,7 @@
         <option value="$PROJECT_DIR$/regression_1.py" />
         <option value="$PROJECT_DIR$/index/create_index.py" />
         <option value="$PROJECT_DIR$/preprocessing/preprocess.py" />
+        <option value="$PROJECT_DIR$/obstacles.txt" />
       </list>
     </option>
   </component>
@@ -264,31 +248,6 @@
             <path>
               <item name="pyspark" type="b2602c69:ProjectViewProjectNode" />
               <item name="pyspark" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pyspark" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyspark" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pyspark" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyspark" type="462c0819:PsiDirectoryNode" />
-              <item name="graphing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pyspark" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyspark" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pyspark" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyspark" type="462c0819:PsiDirectoryNode" />
-              <item name="other" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pyspark" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyspark" type="462c0819:PsiDirectoryNode" />
-              <item name="preprocessing" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -475,13 +434,6 @@
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obstacles.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="81" selection-start-line="27" selection-start-column="81" selection-end-line="27" selection-end-column="81" />
         </state>
       </provider>
     </entry>
@@ -708,16 +660,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index/create_index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="97" column="9" lean-forward="true" selection-start-line="97" selection-end-line="98" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
@@ -737,25 +679,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="733">
-          <caret line="73" column="30" lean-forward="true" selection-start-line="64" selection-end-line="73" selection-end-column="30" />
+        <state relative-caret-position="510">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index/create_index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1455">
+          <caret line="97" column="9" lean-forward="true" selection-start-line="97" selection-end-line="98" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obstacles.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/cumulative.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="25" selection-start-line="8" selection-end-line="9" />
+        <state relative-caret-position="510">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#42#52#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/preprocessing/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        <state relative-caret-position="795">
+          <caret line="53" column="17" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="17" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
