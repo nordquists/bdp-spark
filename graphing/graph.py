@@ -37,7 +37,7 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "denoland/deno"
+REPO_NAME = "kelseyhightower/nocode"
 TABLE_NAME = "ts_weekly_cumulative_preprocessed"
 TO_PLOT = [
     # ALGORITHMS["SMA3"],
@@ -45,7 +45,7 @@ TO_PLOT = [
     # ALGORITHMS["LR"]
 ]
 
-plt.figure(figsize=(12, 9))
+plt.figure(figsize=(16, 12))
 
 # -----------------------------------------------------------------
 
