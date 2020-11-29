@@ -37,7 +37,7 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "CSSEGISandData/COVID-19"
+REPO_NAME = "cyrildiagne/ar-cutpaste"
 TABLE_NAME = "ts_weekly_cumulative_preprocessed"
 TO_PLOT = [
     # ALGORITHMS["SMA3"],
@@ -123,6 +123,9 @@ plt.xticks(fontsize=14)
 
 ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 # ax.set_yscale('log')
+
+plt.ylim(y_min * 5, y_max * 5)
+
 
 plt.title("Activity of {} over time (2020)".format(REPO_NAME), fontsize=17)
 plt.xlabel('Weeks in 2020', fontsize=16)
