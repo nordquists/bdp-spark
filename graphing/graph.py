@@ -110,8 +110,8 @@ plt.xticks(fontsize=14)
 for y in range(increment_size, y_max, increment_size):
     plt.plot(range(0, 45), [y] * len(range(0, 45)), "--", lw=0.5, color="black", alpha=0.3)
 
-# plt.tick_params(axis="both", which="both", bottom="off", top="off",
-#                 labelbottom="on", left="off", right="off", labelleft="on")
+plt.tick_params(axis="both", which="both", bottom="off", top="off",
+                labelbottom="on", left="off", right="off", labelleft="on")
 
 ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 
