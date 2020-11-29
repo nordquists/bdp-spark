@@ -56,7 +56,7 @@ ts = hive_context.sql("SELECT * FROM {} where repo = '{}'".format(TABLE_NAME, RE
 
 ts = ts.orderBy('week')
 
-ts = exclude_outliers(np.array(ts.select('cumsum').collect()).flatten(), ts)
+# ts = exclude_outliers(np.array(ts.select('cumsum').collect()).flatten(), ts)
 
 print(ts.show(30))
 
