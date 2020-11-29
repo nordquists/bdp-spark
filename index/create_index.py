@@ -105,12 +105,8 @@ ts = hive_context.sql("SELECT * FROM {} WHERE week < {}".format(INPUT_TABLE, str
 # We place the time series in our DF so we can pass it through to the mapper
 df = ts.groupBy("repo").agg(f.collect_list("week"), f.collect_list("cumsum"))
 
-print(df.show(100))
-
 # We do the mapping, each map task is a linear regression task.
 result = df.rdd.map(tuple).map(map_linear_regression_derivative)
-
-print(result.take(100))
 
 # Now we use those results to calculate the index
 result = result.map(index_mapper)
@@ -118,7 +114,8 @@ result = result.map(index_mapper)
 print(result.take(100))
 
 # Finally we take the steps to output our index in descending order
-result = result.toDF(['repo', 'index']).orderBy('index', ascending=False)
+result = result.toDF(['repo', 'index'])
+result = result.orderBy('index', ascending=False)
 
 print(result.show(100))
 
