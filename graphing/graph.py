@@ -64,10 +64,10 @@ train = get_train_split(ts)
 eval = get_eval_split(ts)
 
 x = np.array(train.select('week').collect()).flatten()
-y = np.array(train.select('score').collect()).flatten()
+y = np.array(train.select('cumsum').collect()).flatten()
 
 x_hat = np.array(eval.select('week').collect()).flatten()
-y_hat = np.array(eval.select('score').collect()).flatten()
+y_hat = np.array(eval.select('cumsum').collect()).flatten()
 
 assert len(x) == len(y)
 
