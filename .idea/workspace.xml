@@ -74,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index/create_index.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="40" selection-end-column="39" />
+            <state relative-caret-position="256">
+              <caret line="85" column="81" selection-start-line="85" selection-start-column="81" selection-end-line="85" selection-end-column="81" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -735,8 +735,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index/create_index.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="40" selection-end-column="39" />
+        <state relative-caret-position="256">
+          <caret line="85" column="81" selection-start-line="85" selection-start-column="81" selection-end-line="85" selection-end-column="81" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
