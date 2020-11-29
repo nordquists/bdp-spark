@@ -24,9 +24,9 @@ def index_map(line):
 
 def adjust_granularity(rdd, granularity='month'):
     if granularity == 'month':
-        result = rdd.map(lambda row: ("{},{},{}".format(row[0], row[1], datetime.datetime.strptime(row[3],'%Y-%m-%d %H:%M:%S %Z').month),row[4])).reduceByKey(lambda a, b: a + b)
+        result = rdd.map(lambda row: ("{},{},{}".format(row[0], row[1], datetime.datetime.strptime(row[3],'%Y-%m-%d %H:%M:%S %Z').month), row[4])).reduceByKey(lambda a, b: a + b)
     elif granularity == 'week':
-        result = rdd.map(lambda row: ("{},{},{}".format(row[0], row[1], str(datetime.datetime.strptime(row[3],'%Y-%m-%d %H:%M:%S %Z').isocalendar()[1])),row[4])).reduceByKey(lambda a, b: a + b)
+        result = rdd.map(lambda row: ("{},{},{}".format(row[0], row[1], str(datetime.datetime.strptime(row[3],'%Y-%m-%d %H:%M:%S %Z').isocalendar()[1])), int(row[4]))).reduceByKey(lambda a, b: a + b)
 
     result = result.map(lambda (x, y): (x.split(',')[0], x.split(',')[1], x.split(',')[2], y))
     result = result.map(lambda (x, y, z, a): "{},{},{},{}".format(x, y, str(z), str(a)))
