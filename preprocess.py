@@ -12,12 +12,12 @@ def index_map(line):
     week = float(line[2])
     count = int(line[3])
 
-    if type == 'ForkEvent':
-        count = 0.8 * count
-    elif type == 'WatchEvent':
-        count = 2 * count
-    elif type == 'PushEvent':
-        count = math.log10(count)
+    # if type == 'ForkEvent':
+    #     count = count
+    # elif type == 'WatchEvent':
+    #     count = count
+    # elif type == 'PushEvent':
+    #     count = count
 
     return "{},{}".format(repo, week), count
 
@@ -73,6 +73,6 @@ rdd = adjust_granularity(rdd, granularity='week')
 
 rdd = create_index(rdd, weight_fork=0.5, weight_watch=2, weight_push=0.1)
 
-rdd = apply_filter(rdd, granularity='week', min_score=300)
+# rdd = apply_filter(rdd, granularity='week', min_score=300)
 
 rdd.saveAsTextFile(OUTPUT_DIR)
