@@ -121,7 +121,7 @@ plt.tick_params(axis="both", which="both", bottom="off", top="off",
                 labelbottom="on", left="off", right="off", labelleft="on")
 
 ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
-ax.set_yscale('log')
+# ax.set_yscale('log')
 
 plt.title("Activity of {} over time (2020)".format(REPO_NAME), fontsize=17)
 plt.xlabel('Weeks in 2020', fontsize=16)
