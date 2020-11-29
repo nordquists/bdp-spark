@@ -115,7 +115,7 @@ print(result.take(100))
 
 # Finally we take the steps to output our index in descending order
 result = result.toDF(['repo', 'index'])
-result = result.orderBy('index', ascending=False)
+# result = result.orderBy('index', ascending=False)
 
 print(result.show(100))
 
