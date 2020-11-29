@@ -98,8 +98,6 @@ ax.spines["left"].set_visible(False)
 ax.get_xaxis().tick_bottom()
 ax.get_yaxis().tick_left()
 
-ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
-
 y_max = int(max(max(y), max(y_hat)))
 y_min = int(min(min(y), min(y_hat)))
 increment_size = y_max // 10
@@ -112,8 +110,10 @@ plt.xticks(fontsize=14)
 for y in range(increment_size, y_max, increment_size):
     plt.plot(range(0, 45), [y] * len(range(0, 45)), "--", lw=0.5, color="black", alpha=0.3)
 
-plt.tick_params(axis="both", which="both", bottom="off", top="off",
-                labelbottom="on", left="off", right="off", labelleft="on")
+# plt.tick_params(axis="both", which="both", bottom="off", top="off",
+#                 labelbottom="on", left="off", right="off", labelleft="on")
+
+ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 
 plt.title("Activity of {} over time (2020)".format(REPO_NAME), fontsize=17)
 plt.xlabel('Weeks in 2020')
