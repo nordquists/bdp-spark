@@ -116,8 +116,8 @@ plt.tick_params(axis="both", which="both", bottom="off", top="off",
 ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 
 plt.title("Activity of {} over time (2020)".format(REPO_NAME), fontsize=17)
-plt.xlabel('Weeks in 2020')
-plt.ylabel('Activity Index')
+plt.xlabel('Weeks in 2020', fontsize=16)
+plt.ylabel('Activity Index', fontsize=16)
 
 # plt.text("Note: Models tested were only trained on the first 40 weeks (points in blue).", fontsize=10)
 plt.legend()
