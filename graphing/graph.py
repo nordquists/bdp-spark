@@ -39,10 +39,11 @@ for i in range(len(TABLEAU_20)):
 # Adjustables
 REPO_NAME = "CSSEGISandData/COVID-19"
 TABLE_NAME = "weekly_cumulative"
+TYPE = ""
 TO_PLOT = [
     # ALGORITHMS["SMA3"],
-    # ALGORITHMS["ARIMA"],
-    # ALGORITHMS["LR"]
+    ALGORITHMS["ARIMA"],
+    ALGORITHMS["LR"]
 ]
 
 plt.figure(figsize=(16, 12))
@@ -115,8 +116,8 @@ print(y_min, y_max)
 # plt.yticks(range(y_min - 2000, y_max+2000, increment_size), [str(x) for x in range(y_min - 2000, y_max+2000, increment_size)], fontsize=14)
 plt.xticks(fontsize=14)
 
-# for y in range(increment_size, y_max, increment_size):
-#     plt.plot(range(0, 45), [y] * len(range(0, 45)), "--", lw=0.5, color="black", alpha=0.3)
+for y in range(increment_size, y_max, increment_size):
+    plt.plot(range(0, 45), [y] * len(range(0, 45)), "--", lw=0.5, color="black", alpha=0.3)
 #
 # plt.tick_params(axis="both", which="both", bottom="off", top="off",
 #                 labelbottom="on", left="off", right="off", labelleft="on")
@@ -124,10 +125,10 @@ plt.xticks(fontsize=14)
 # ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2e'))
 # ax.set_yscale('log')
 
-plt.ylim(y_min*2, y_max*2)
+plt.ylim(y_min//2, y_max*2)
 
 
-plt.title("Activity of {} over time (2020)".format(REPO_NAME), fontsize=17)
+plt.title("{} Activity of {} over time (2020)".format('Cumulative' if type== 'cumsum' else '',REPO_NAME), fontsize=17)
 plt.xlabel('Weeks in 2020', fontsize=16)
 plt.ylabel('Activity Index', fontsize=16)
 
