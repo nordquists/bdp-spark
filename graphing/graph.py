@@ -37,7 +37,7 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "labuladong/fucking-algorithm"
+REPO_NAME = "denoland/deno"
 TABLE_NAME = "ts_weekly_cumulative_preprocessed"
 TO_PLOT = [
     # ALGORITHMS["SMA3"],
@@ -124,4 +124,4 @@ plt.legend()
 
 plt.show()
 
-plt.savefig("./graphs/figure1.png", bbox_inches="tight")
+plt.savefig("./graphs/figure1.png", bbox_inches="tight", dpi=1200)
