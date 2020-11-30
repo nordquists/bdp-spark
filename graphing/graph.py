@@ -135,6 +135,6 @@ plt.ylabel('Activity Index', fontsize=25)
 # plt.text("Note: Models tested were only trained on the first 40 weeks (points in blue).", fontsize=10)
 plt.legend()
 
-plt.show(dpi=1200)
+plt.show()
 
 plt.savefig("graphs/figure1.png", bbox_inches="tight", dpi=1200)
