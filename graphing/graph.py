@@ -39,7 +39,7 @@ for i in range(len(TABLEAU_20)):
 # Adjustables
 REPO_NAME = "CSSEGISandData/COVID-19"
 TABLE_NAME = "weekly_cumulative"
-TYPE = "cumsum"
+TYPE = "score"
 TO_PLOT = [
     # ALGORITHMS["SMA3"],
     # ALGORITHMS["ARIMA"],

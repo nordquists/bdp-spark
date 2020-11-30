@@ -35,6 +35,8 @@ def run_algorithms(algorithms, x, y, x_hat):
             lr.fit(x, y)
             y_1 = lr.predict(x)
             y_hat = lr.predict(x_hat)
+            rmse, r2 = lr.evaluate(np.append(y_1, y_hat, 0), y)
+            print(r2)
             results.append([algorithm, (np.append(x, x_hat, 0), np.append(y_1, y_hat, 0))])
 
     return results
