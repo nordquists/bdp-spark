@@ -37,7 +37,7 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "CSSEGISandData/COVID-19"
+REPO_NAME = "facebook/react-native"
 TABLE_NAME = "weekly_cumulative"
 TYPE = "score"
 TO_PLOT = [
@@ -46,7 +46,7 @@ TO_PLOT = [
     ALGORITHMS["LR"]
 ]
 
-plt.figure(figsize=(10, 8))
+plt.figure(figsize=(11, 8))
 
 # -----------------------------------------------------------------
 
