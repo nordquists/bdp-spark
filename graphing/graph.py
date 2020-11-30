@@ -37,12 +37,12 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "labuladong/fucking-algorithm"
+REPO_NAME = "CSSEGISandData/COVID-19"
 TABLE_NAME = "weekly_cumulative"
-TYPE = ""
+TYPE = "cumsum"
 TO_PLOT = [
     # ALGORITHMS["SMA3"],
-    ALGORITHMS["ARIMA"],
+    # ALGORITHMS["ARIMA"],
     ALGORITHMS["LR"]
 ]
 
@@ -61,14 +61,14 @@ ts = ts.orderBy('week')
 
 print(ts.show(30))
 
-train = get_train_split(ts)
-eval = get_eval_split(ts)
+train = get_train_split(ts, TYPE)
+eval = get_eval_split(ts, TYPE)
 
 x = np.array(train.select('week').collect()).flatten()
-y = np.array(train.select('cumsum').collect()).flatten()
+y = np.array(train.select(TYPE).collect()).flatten()
 
 x_hat = np.array(eval.select('week').collect()).flatten()
-y_hat = np.array(eval.select('cumsum').collect()).flatten()
+y_hat = np.array(eval.select(TYPE).collect()).flatten()
 
 assert len(x) == len(y)
 
@@ -85,7 +85,7 @@ for result in results:
 
     plt.plot(list(x_plot), list(y_plot), label=algorithm_name, color=algorithm_color)
 
-plt.bar(x, y, color=TABLEAU_20[5])
+# plt.bar(x, y, color=TABLEAU_20[5])
 plt.scatter(x, y, color=TABLEAU_20[4])
 plt.scatter(x_hat, y_hat, color=TABLEAU_20[8])
 
@@ -128,7 +128,7 @@ plt.tick_params(axis="both", which="both", bottom="off", top="off",
 plt.ylim(y_min//2, y_max*1.1)
 
 
-plt.title("{} Activity of {} over time (2020)".format('Cumulative' if type== 'cumsum' else '',REPO_NAME), fontsize=17)
+plt.title("{} Activity of {} over time (2020)".format('Cumulative' if TYPE== 'cumsum' else '',REPO_NAME), fontsize=17)
 plt.xlabel('Weeks in 2020', fontsize=16)
 plt.ylabel('Activity Index', fontsize=16)
 
