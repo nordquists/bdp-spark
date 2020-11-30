@@ -37,7 +37,7 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "freeCodeCamp/freeCodeCamp"
+REPO_NAME = "django/django"
 TABLE_NAME = "weekly_cumulative"
 TYPE = "score"
 TO_PLOT = [
