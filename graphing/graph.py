@@ -115,6 +115,7 @@ print(y_min, y_max)
 
 # plt.yticks(range(y_min - 2000, y_max+2000, increment_size), [str(x) for x in range(y_min - 2000, y_max+2000, increment_size)], fontsize=14)
 plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
 
 for y in range(increment_size, y_max, increment_size):
     plt.plot(range(0, 45), [y] * len(range(0, 45)), "--", lw=0.5, color="black", alpha=0.3)
@@ -133,7 +134,7 @@ plt.xlabel('Weeks in 2020', fontsize=25)
 plt.ylabel('Activity Index', fontsize=25)
 
 # plt.text("Note: Models tested were only trained on the first 40 weeks (points in blue).", fontsize=10)
-plt.legend()
+plt.legend(fontsize=20)
 
 plt.show()
 
