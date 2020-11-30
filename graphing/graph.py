@@ -114,7 +114,7 @@ else:
 print(y_min, y_max)
 
 # plt.yticks(range(y_min - 2000, y_max+2000, increment_size), [str(x) for x in range(y_min - 2000, y_max+2000, increment_size)], fontsize=14)
-plt.xticks(fontsize=14)
+plt.xticks(fontsize=20)
 
 for y in range(increment_size, y_max, increment_size):
     plt.plot(range(0, 45), [y] * len(range(0, 45)), "--", lw=0.5, color="black", alpha=0.3)
@@ -128,13 +128,13 @@ plt.tick_params(axis="both", which="both", bottom="off", top="off",
 plt.ylim(y_min//2, y_max*1.1)
 
 
-plt.title("{} Activity of {} over time (2020)".format('Cumulative' if TYPE== 'cumsum' else '',REPO_NAME), fontsize=17)
-plt.xlabel('Weeks in 2020', fontsize=16)
-plt.ylabel('Activity Index', fontsize=16)
+plt.title("{} Activity of {} over time (2020)".format('Cumulative' if TYPE== 'cumsum' else '',REPO_NAME), fontsize=30)
+plt.xlabel('Weeks in 2020', fontsize=25)
+plt.ylabel('Activity Index', fontsize=25)
 
 # plt.text("Note: Models tested were only trained on the first 40 weeks (points in blue).", fontsize=10)
 plt.legend()
 
-plt.show()
+plt.show(dpi=1200)
 
 plt.savefig("graphs/figure1.png", bbox_inches="tight", dpi=1200)
