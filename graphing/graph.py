@@ -37,7 +37,7 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "bradtraversy/design-resources-for-developers"
+REPO_NAME = "geekxh/hello-algorithm"
 TABLE_NAME = "weekly_cumulative"
 TYPE = "score"
 TO_PLOT = [
