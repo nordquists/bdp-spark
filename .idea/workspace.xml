@@ -36,14 +36,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="45" />
-          <entry key="py" value="20213" />
+          <entry key="py" value="20216" />
           <entry key="txt" value="701" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="746" />
-          <entry key="Python" value="20213" />
+          <entry key="Python" value="20216" />
         </counts>
       </usages-collector>
     </session>

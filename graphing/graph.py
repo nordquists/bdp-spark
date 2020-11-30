@@ -46,7 +46,7 @@ TO_PLOT = [
     ALGORITHMS["LR"]
 ]
 
-plt.figure(figsize=(8, 10))
+plt.figure(figsize=(10, 8))
 
 # -----------------------------------------------------------------
 
