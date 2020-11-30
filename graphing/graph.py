@@ -129,7 +129,7 @@ plt.tick_params(axis="both", which="both", bottom="off", top="off",
 plt.ylim(y_min//2, y_max*1.1)
 
 
-plt.title("{} Activity of {} over time (2020)".format('Cumulative' if TYPE== 'cumsum' else '',REPO_NAME), fontsize=30)
+plt.title("{}\n Activity of {}\n over time".format('Cumulative' if TYPE== 'cumsum' else '',REPO_NAME), fontsize=30)
 plt.xlabel('Weeks in 2020', fontsize=25)
 plt.ylabel('Activity Index', fontsize=25)
 
