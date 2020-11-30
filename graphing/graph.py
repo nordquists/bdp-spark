@@ -37,7 +37,7 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "vuejs/vue"
+REPO_NAME = "bradtraversy/design-resources-for-developers"
 TABLE_NAME = "weekly_cumulative"
 TYPE = "score"
 TO_PLOT = [

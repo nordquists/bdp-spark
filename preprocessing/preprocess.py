@@ -1,7 +1,7 @@
 from pyspark import SparkContext
 from pyspark.sql import HiveContext
 from pyspark.sql.window import Window
-from pyspark.sql.types import DoubleType
+from pyspark.sql.types import DoubleType, IntegerType
 import pyspark.sql.functions as f
 import datetime
 import math
@@ -84,7 +84,7 @@ ts = rdd.map(lambda line: line.split(",")).toDF(["repo", "week", "score"])
 ts = ts.fillna({'score': 0, 'week': 0, 'repo': ''})
 
 # If we don't cast, we get some very bad results.
-# ts = ts.withColumn("week", f.col("week").cast(DoubleType()))
+ts = ts.withColumn("week", f.col("week").cast(IntegerType()))
 ts = ts.withColumn("score", f.col("score").cast(DoubleType()))
 
 cum_sum = ts.withColumn('cumsum', f.sum(f.col("score")).over(Window.partitionBy('repo').orderBy(f.col("week")).rowsBetween(-sys.maxsize, 0)))
