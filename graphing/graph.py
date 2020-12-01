@@ -43,7 +43,7 @@ TYPE = "cumsum"
 TO_PLOT = [
     # ALGORITHMS["SMA3"],
     # ALGORITHMS["ARIMA"],
-    ALGORITHMS["LR"]
+    # ALGORITHMS["LR"]
 ]
 
 plt.figure(figsize=(11, 8))
