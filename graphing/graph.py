@@ -37,7 +37,7 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "TheAlgorithms/Python"
+REPO_NAME = "CSSEGISandData/COVID-19"
 TABLE_NAME = "weekly_cumulative"
 TYPE = "cumsum"
 TO_PLOT = [
