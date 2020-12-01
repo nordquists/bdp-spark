@@ -37,7 +37,7 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "jwasham/coding-interview-university"
+REPO_NAME = "labuladong/fucking-algorithm"
 TABLE_NAME = "weekly_cumulative"
 TYPE = "cumsum"
 TO_PLOT = [
