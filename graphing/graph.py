@@ -37,7 +37,7 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "rust-lang/rust"
+REPO_NAME = "TheAlgorithms/Python"
 TABLE_NAME = "weekly_cumulative"
 TYPE = "cumsum"
 TO_PLOT = [
