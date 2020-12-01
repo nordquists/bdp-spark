@@ -37,9 +37,9 @@ for i in range(len(TABLEAU_20)):
 # -----------------------------------------------------------------
 
 # Adjustables
-REPO_NAME = "tensorflow/tensorflow"
+REPO_NAME = "jwasham/coding-interview-university"
 TABLE_NAME = "weekly_cumulative"
-TYPE = "score"
+TYPE = "cumsum"
 TO_PLOT = [
     # ALGORITHMS["SMA3"],
     # ALGORITHMS["ARIMA"],

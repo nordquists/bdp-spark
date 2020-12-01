@@ -108,17 +108,15 @@ df = ts.groupBy("repo").agg(f.collect_list("week"), f.collect_list("cumsum"))
 # We do the mapping, each map task is a linear regression task.
 result = df.rdd.map(tuple).map(map_linear_regression_derivative)
 
-result.saveAsTextFile("hdfs://dumbo/user/srn334/final/eval/")
+# Now we use those results to calculate the index
+result = result.map(index_mapper)
 
-# # Now we use those results to calculate the index
-# result = result.map(index_mapper)
-#
-# # Finally we take the steps to output our index in descending order
-# dataframe = result.toDF(['repo', 'index'])
-# dataframe = dataframe.orderBy('index', ascending=False)
-#
-# dataframe = dataframe.rdd.map(tuple).map(lambda (repo_name, index): "{};{}".format(repo_name, index))
-#
-# # ----------------------------------------------------------------------------------------------------------------
-#
-# dataframe.saveAsTextFile(OUTPUT_DIR)
+# Finally we take the steps to output our index in descending order
+dataframe = result.toDF(['repo', 'index'])
+dataframe = dataframe.orderBy('index', ascending=False)
+
+dataframe = dataframe.rdd.map(tuple).map(lambda (repo_name, index): "{};{}".format(repo_name, index))
+
+# ----------------------------------------------------------------------------------------------------------------
+
+dataframe.saveAsTextFile(OUTPUT_DIR)
