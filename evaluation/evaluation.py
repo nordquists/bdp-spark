@@ -1,5 +1,5 @@
 """
-
+    This is written in python 3.
 
     To run this file, use (Spark is not used for this file because it is just comparing CSVs):
         $   python evaluation.py <reference_file> <candidate_file>
@@ -22,18 +22,24 @@ def load_file(input_file):
     repos = []
     with open(input_file, 'r') as input:
         for line in input:
-            repo_name = line.split(',')
+            repo_name, category = line.split(',')
             repos.append(repo_name)
 
     return repos
 
 
 def write_scores(name, accuracy, precision, recall, f):
-    with open(f"./results/{name}.results", 'w') as output:
+    with open(f"./results/eval2.results", 'w') as output:
         output.write(f"ACCURACY:\t{accuracy}\n")
         output.write(f"PRECISION:\t{precision}\n")
         output.write(f"RECALL:\t{recall}\n")
         output.write(f"F-SCORE:\t{f}\n")
+
+
+def write_difference(file2, file1, differences):
+    with open(f"./difference/{file2}-{file1}.diff", 'w') as output:
+        for difference in differences:
+            output.write(f"{difference}\n")
 
 
 def evaluate(reference_file, candidate_file):
@@ -47,13 +53,16 @@ def evaluate(reference_file, candidate_file):
 
     intersection = float(len(references_set.intersection(candidates_set)))
 
+    false_positives = candidates_set.difference(references_set)
+    false_negatives = references_set.difference(candidates_set)
+
     # Notice these calculations will be the same because our length is bounded and always 100.
     accuracy = intersection / length
     precision = intersection / length
     recall = intersection / length
     f = (2 * recall * precision) / (recall + precision) if (recall + precision) else 0
 
-    return accuracy, precision, recall, f
+    return accuracy, precision, recall, f, false_negatives, false_positives
 
 
 if __name__ == "__main__":
@@ -61,7 +70,11 @@ if __name__ == "__main__":
         print("Usage: python evaluate.py <reference_file> <candidate_file>")
         sys.exit(1)
 
-    accuracy, precision, recall, f = evaluate(sys.argv[1], sys.argv[2])
+    accuracy, precision, recall, f, false_negatives, false_positives = evaluate(sys.argv[1], sys.argv[2])
 
     write_scores(sys.argv[1], accuracy, precision, recall, f)
+
+    write_difference('analytic', 'eval2', false_negatives)
+    write_difference('eval2', 'analytic', false_positives)
+
 

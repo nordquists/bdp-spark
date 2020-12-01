@@ -1,0 +1,99 @@
+opencv/opencv,
+facebook/react,
+containous/traefik,cloud
+electron/electron,
+vuejs/awesome-vue,
+svg/svgo,utilities
+twbs/bootstrap,
+expressjs/express,
+syncthing/syncthing,utilities
+angular/components,frontend
+jobbole/awesome-java-cn,
+gorilla/websocket,
+daneden/animate.css,frontend
+ant-design/ant-design,
+josephmisiti/awesome-machine-learning,
+scrapy/scrapy,utilities
+git/git,utilities
+Leaflet/Leaflet,utilities
+metabase/metabase,data visualization
+junegunn/vim-plug,utilities
+dmlc/mxnet,machine learning
+vuejs/vue,
+golang/go,
+nodejs/node,
+Semantic-Org/Semantic-UI,
+jgthms/bulma,frontend
+preactjs/preact,frontend
+nolimits4web/Swiper,frontend
+standard/standard,styleguide
+reactjs/react-redux,
+ramda/ramda,utilities
+pjreddie/darknet,machine learning
+OAI/OpenAPI-Specification,learning
+rasbt/python-machine-learning-book,learning
+FormidableLabs/spectacle,frontend
+tensorflow/tensorflow,machine learning
+microsoft/vscode,ide
+axios/axios,
+tensorflow/models,
+iluwatar/java-design-patterns,learning
+angular/angular,
+keras-team/keras,machine learning
+gohugoio/hugo,
+rust-lang/rust,
+pixijs/pixi.js,frontend
+apache/incubator-superset,data visualization
+pingcap/tidb,database
+kubernetes/minikube,backend
+facebook/rocksdb,database
+pytorch/examples,machine learning
+philc/vimium,utilities
+chmln/flatpickr,frontend
+plotly/plotly.js,data visualization
+openalpr/openalpr,machine learning
+81813780/AVLoadingIndicatorView,frontend
+FormidableLabs/victory,frontend
+discordjs/discord.js,utilities
+mailhog/MailHog,utilities
+EbookFoundation/free-programming-books,learning
+sindresorhus/awesome,compilation
+getify/You-Dont-Know-JS,learning
+ohmyzsh/ohmyzsh,
+wasabeef/awesome-android-ui,compilation
+grafana/grafana,data visualization
+MaximAbramchuck/awesome-interview-questions,learning
+Unitech/PM2,backend
+slatedocs/slate,utilities
+rclone/rclone,cloud
+Neilpang/acme.sh,utilities
+apache/airflow,backend
+jcjohnson/neural-style,machine learning
+necolas/react-native-web,frontend
+michalsnik/aos,frontend
+source-foundry/Hack,design
+wesm/pydata-book,data visualization
+pouchdb/pouchdb,database
+redox-os/redox,operating system
+Nyr/openvpn-install,utilities
+apollographql/apollo-server,backend
+xirong/my-git,learning
+facebook/react-native,frontend
+justjavac/free-programming-books-zh_CN,learning
+papers-we-love/papers-we-love,compilation
+requests/requests,backend
+vuejs/vuex,frontend
+jiahaog/nativefier,utilities
+sentsin/layui,frontend
+alibaba/fastjson,utilities
+PowerShell/PowerShell,utilities
+tsenart/vegeta ,utilities
+geeeeeeeeek/git-recipes,learning
+NVIDIA/nvidia-docker,backend
+jupyterlab/jupyterlab,ide
+H07000223/FlycoTabLayout,frontend
+styleguidist/react-styleguidist,styleguide
+mholt/PapaParse,utilities
+judasn/Linux-Tutorial,learning
+Rapptz/discord.py,utilities
+PrestaShop/PrestaShop,utilities
