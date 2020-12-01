@@ -17,6 +17,23 @@ sc.setLogLevel("WARN")
 
 # Preprocessing Mappers ------------------------------------------------------------------------------------------------
 
+# def index_map(line):
+#     repo = line[0]
+#     type = line[1]
+#     week = float(line[2])
+#     count = int(line[3])
+#
+#     if type == 'ForkEvent':
+#         count = count
+#     elif type == 'WatchEvent':
+#         count = 2 * count
+#     elif type == 'PushEvent':
+#         count = math.log10(count)
+#     else:
+#         count = 0
+#
+#     return "{},{}".format(repo, week), count
+
 def index_map(line):
     repo = line[0]
     type = line[1]
@@ -26,9 +43,9 @@ def index_map(line):
     if type == 'ForkEvent':
         count = count
     elif type == 'WatchEvent':
-        count = 2 * count
+        count = count
     elif type == 'PushEvent':
-        count = math.log10(count)
+        count = count
     else:
         count = 0
 
