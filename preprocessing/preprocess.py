@@ -41,11 +41,11 @@ def index_map(line):
     count = int(line[3])
 
     if type == 'ForkEvent':
-        count = count
+        count = 2 * count
     elif type == 'WatchEvent':
         count = count
     elif type == 'PushEvent':
-        count = count
+        count = math.log10(count)
     else:
         count = 0
 
